@@ -7,6 +7,7 @@ import { Package, Tag, ShoppingCart, Settings, ArrowLeft, Check, Plus, Edit2, Sh
 import { PRODUCTS, SHIPPING_ZONES } from '@/data/products';
 import { useCampaign } from '@/context/CampaignContext';
 import { Product } from '@/types';
+import { supabase, isSupabaseConfigured } from '@/lib/supabase';
 
 export default function AdminDashboard() {
   const { campaign, updateCampaign } = useCampaign();

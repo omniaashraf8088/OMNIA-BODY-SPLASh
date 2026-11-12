@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Search, X, Eye, ShoppingBag } from 'lucide-react';
 import { PRODUCTS } from '@/data/products';
 import { Product } from '@/types';
@@ -76,11 +77,9 @@ export default function SearchModal({ isOpen, onClose, onSelectProduct }: Search
                 key={product.id}
                 className="flex items-center justify-between p-3 bg-[#F7F1E8] border border-[#E8D8C3] hover:border-[#8B674D] transition-colors"
               >
-                <div
-                  onClick={() => {
-                    onSelectProduct(product);
-                    onClose();
-                  }}
+                <Link
+                  href={`/product/${product.id}`}
+                  onClick={onClose}
                   className="flex items-center gap-4 cursor-pointer flex-1"
                 >
                   <div className="relative w-12 h-16 flex-shrink-0 bg-white">
@@ -93,14 +92,14 @@ export default function SearchModal({ isOpen, onClose, onSelectProduct }: Search
                     />
                   </div>
                   <div>
-                    <h4 className="font-serif text-base text-[#493426]">
+                    <h4 className="font-serif text-base text-[#493426] hover:text-[#8B674D] transition-colors">
                       {language === 'en' ? product.nameEn : product.nameAr}
                     </h4>
                     <span className="text-[10px] uppercase font-sans text-[#8B674D]">
                       {product.volume} • {language === 'en' ? product.familyEn : product.familyAr}
                     </span>
                   </div>
-                </div>
+                </Link>
 
                 <div className="flex items-center gap-2">
                   <span className="font-serif font-bold text-sm text-[#493426] mr-2">

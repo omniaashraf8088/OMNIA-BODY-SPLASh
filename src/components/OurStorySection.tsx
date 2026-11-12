@@ -67,30 +67,30 @@ export default function OurStorySection() {
               <div className="p-4 bg-[#FFF9F1] border border-[#E8D8C3]">
                 <ShieldCheck className="w-5 h-5 text-[#8B674D] mb-2" />
                 <h4 className="font-serif text-sm text-[#493426] font-semibold">
-                  {language === 'en' ? 'Fine Essences' : 'خلاصات نقية'}
+                  {language === 'en' ? 'Artistic Curation' : 'إلهام عطري فني'}
                 </h4>
                 <p className="text-[11px] text-[#8B674D] font-sans mt-1">
-                  {language === 'en' ? 'International cosmetic-grade fragrance oils' : 'زيوت عطرية فرنسية بجودة مستحضرات التجميل العالمية'}
+                  {language === 'en' ? 'Distinctive fragrance profiles designed for every mood' : 'توليفات حسية فريدة مصممة لتناسب مختلف الأذواق'}
                 </p>
               </div>
 
               <div className="p-4 bg-[#FFF9F1] border border-[#E8D8C3]">
                 <Award className="w-5 h-5 text-[#8B674D] mb-2" />
                 <h4 className="font-serif text-sm text-[#493426] font-semibold">
-                  {language === 'en' ? 'Long-Lasting' : 'ثبات متألق'}
+                  {language === 'en' ? 'Graceful Sillage' : 'انتشار ناعم'}
                 </h4>
                 <p className="text-[11px] text-[#8B674D] font-sans mt-1">
-                  {language === 'en' ? 'Optimized projection that endures gracefully' : 'انتشار ناعم وثبات يدوم مع حركة الجسم'}
+                  {language === 'en' ? 'Intimate, delicate trail that accompanies your day' : 'فوحان هادئ وأنيق يرافق يومكِ بكل رقة وجاذبية'}
                 </p>
               </div>
 
               <div className="p-4 bg-[#FFF9F1] border border-[#E8D8C3]">
                 <HeartHandshake className="w-5 h-5 text-[#8B674D] mb-2" />
                 <h4 className="font-serif text-sm text-[#493426] font-semibold">
-                  {language === 'en' ? 'Gentle on Skin' : 'آمن على البشرة'}
+                  {language === 'en' ? 'Everyday Freshness' : 'انتعاش يومي'}
                 </h4>
                 <p className="text-[11px] text-[#8B674D] font-sans mt-1">
-                  {language === 'en' ? 'Dermatologically safe formulation' : 'تركيبة نقية ومناسبة لجميع أنواع البشرة'}
+                  {language === 'en' ? 'Lightweight micro-mist designed for daily indulgence' : 'رذاذ خفيف ومنعش مصمم للاستخدام اليومي الممتع'}
                 </p>
               </div>
             </div>

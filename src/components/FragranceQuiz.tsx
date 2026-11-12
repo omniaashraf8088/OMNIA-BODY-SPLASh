@@ -227,14 +227,26 @@ export default function FragranceQuiz({ onSelectProduct }: FragranceQuizProps) {
                   {language === 'en' ? matchedProduct.storyEn : matchedProduct.storyAr}
                 </p>
 
-                <div className="mt-4 flex items-center gap-3">
-                  <button
-                    onClick={() => onSelectProduct(matchedProduct)}
+                <div className="mt-3 flex items-baseline gap-2">
+                  <span className="font-serif font-bold text-lg text-[#493426]">
+                    {matchedProduct.price} {t.collection.egp}
+                  </span>
+                  <span className="text-xs text-[#8B674D] line-through font-sans">
+                    {matchedProduct.originalPrice} {t.collection.egp}
+                  </span>
+                  <span className="px-2 py-0.5 bg-[#8B674D] text-[#FFF9F1] text-[10px] font-bold font-sans">
+                    50% OFF
+                  </span>
+                </div>
+
+                <div className="mt-4 flex flex-wrap justify-center items-center gap-3">
+                  <a
+                    href={`/product/${matchedProduct.id}`}
                     className="px-5 py-2.5 bg-[#493426] text-[#FFF9F1] hover:bg-[#8B674D] text-xs font-sans uppercase tracking-wider transition-colors flex items-center gap-1.5 shadow"
                   >
                     <Eye className="w-3.5 h-3.5" />
                     <span>{t.quiz.viewStory}</span>
-                  </button>
+                  </a>
 
                   <button
                     onClick={() => addToCart(matchedProduct, 1)}

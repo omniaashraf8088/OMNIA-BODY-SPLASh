@@ -10,6 +10,7 @@ import { useLanguage } from '@/context/LanguageContext';
 import { useCampaign } from '@/context/CampaignContext';
 import { SHIPPING_ZONES } from '@/data/products';
 import { translations } from '@/data/translations';
+import { supabase, isSupabaseConfigured } from '@/lib/supabase';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
@@ -73,6 +74,13 @@ export default function CheckoutPage() {
       existingOrders.unshift(orderData);
       localStorage.setItem('omnia_orders', JSON.stringify(existingOrders));
       localStorage.setItem('omnia_latest_order', JSON.stringify(orderData));
+
+      // Optional remote Supabase sync
+      if (isSupabaseConfigured && supabase) {
+        Promise.resolve(supabase.from('orders').insert([orderData])).catch((err: unknown) => {
+          console.warn('Supabase sync warning:', err);
+        });
+      }
     } catch (e) {
       console.error(e);
     }

@@ -70,8 +70,34 @@ function ProductDetailContent() {
       ? 'Masculine Collection'
       : 'المجموعة الرجالية';
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: product.nameEn,
+    image: `https://omniabodysplash.vercel.app${product.image}`,
+    description: product.storyEn,
+    sku: `MN-${product.id.toUpperCase()}`,
+    category: product.category === 'feminine' ? "Women's Fragrance" : "Men's Fragrance",
+    brand: {
+      '@type': 'Brand',
+      name: 'MN OMNIA'
+    },
+    offers: {
+      '@type': 'Offer',
+      priceCurrency: 'EGP',
+      price: OFFICIAL_PRICING.salePrice,
+      priceValidUntil: '2027-12-31',
+      availability: 'https://schema.org/InStock',
+      url: `https://omniabodysplash.vercel.app/product/${product.id}`
+    }
+  };
+
   return (
     <div className="min-h-screen bg-[#F7F1E8] text-[#493426] flex flex-col justify-between selection:bg-[#493426] selection:text-[#FFF9F1]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Header />
 
       <main className="container mx-auto px-4 sm:px-6 py-8 sm:py-12 max-w-6xl flex-grow space-y-16">
