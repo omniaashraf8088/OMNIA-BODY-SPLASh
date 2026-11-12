@@ -66,7 +66,7 @@ export default function CollectionSection({ onSelectProduct }: CollectionSection
 
             <div className="absolute inset-0 p-8 flex flex-col justify-end text-[#FFF9F1]">
               <span className="text-[11px] tracking-[0.3em] uppercase font-sans text-[#E8D8C3] mb-1">
-                4 Fragrances
+                {PRODUCTS.filter(p => p.category === 'feminine').length} {language === 'en' ? 'Fragrances' : 'عطور'}
               </span>
               <h3 className="text-2xl sm:text-3xl font-serif tracking-wide">
                 {t.collection.feminineTitle}
@@ -96,17 +96,17 @@ export default function CollectionSection({ onSelectProduct }: CollectionSection
             }`}
           >
             <Image
-              src="/assets/posters/cinematic_poster.png"
-              alt="Masculine Collection"
+              src="/assets/posters/men_cover.png"
+              alt="MN OMNIA Masculine Collection"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover object-center transition-transform duration-1000 ease-out group-hover:scale-105"
+              className="object-cover object-[center_35%] transition-transform duration-1000 ease-out group-hover:scale-105"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#20140D]/95 via-[#20140D]/40 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#101820]/95 via-[#101820]/30 to-transparent" />
 
             <div className="absolute inset-0 p-8 flex flex-col justify-end text-[#FFF9F1]">
               <span className="text-[11px] tracking-[0.3em] uppercase font-sans text-[#D1B99C] mb-1">
-                2 Fragrances
+                {PRODUCTS.filter(p => p.category === 'masculine').length} {language === 'en' ? 'Fragrances' : 'عطور'}
               </span>
               <h3 className="text-2xl sm:text-3xl font-serif tracking-wide">
                 {t.collection.masculineTitle}
@@ -146,7 +146,7 @@ export default function CollectionSection({ onSelectProduct }: CollectionSection
                 : 'bg-white/60 text-[#493426] border-[#E8D8C3] hover:bg-white'
             }`}
           >
-            {t.collection.feminineTitle} (4)
+            {t.collection.feminineTitle} ({PRODUCTS.filter(p => p.category === 'feminine').length})
           </button>
           <button
             onClick={() => setActiveTab('masculine')}
@@ -156,7 +156,7 @@ export default function CollectionSection({ onSelectProduct }: CollectionSection
                 : 'bg-white/60 text-[#493426] border-[#E8D8C3] hover:bg-white'
             }`}
           >
-            {t.collection.masculineTitle} (2)
+            {t.collection.masculineTitle} ({PRODUCTS.filter(p => p.category === 'masculine').length})
           </button>
         </div>
 
