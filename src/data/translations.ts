@@ -49,6 +49,12 @@ export const translations = {
       headline: 'THE ART OF FRAGRANCE',
       supporting: 'Every fragrance tells a different story. Crafted without compromise, MN OMNIA transforms everyday rituals into moments of pure personal luxury.'
     },
+    menCampaign: {
+      badge: 'OMNIA MEN CAMPAIGN',
+      headline: 'DISCOVER THE WORLD OF OMNIA MEN',
+      supporting: 'A refined expression of freshness and confidence.',
+      exploreBtn: 'EXPLORE MEN’S FRAGRANCES'
+    },
     story: {
       badge: 'OUR PHILOSOPHY',
       title: 'A LITTLE TOUCH OF LUXURY, EVERY DAY',
@@ -228,6 +234,12 @@ export const translations = {
     cinematic: {
       headline: 'فن العطور وصناعة الذكريات',
       supporting: 'كل عطر يحكي حكاية مختلفة. بدون أي مساومة على الجودة، تحوّل إم إن أومنيا روتينكِ اليومي إلى لحظة من الترف الخالص.'
+    },
+    menCampaign: {
+      badge: 'حملة OMNIA الرجالية',
+      headline: 'اكتشف عالم OMNIA الرجالي',
+      supporting: 'انتعاش وأناقة تعبّران عن شخصيتك.',
+      exploreBtn: 'استكشف عطور الرجال'
     },
     story: {
       badge: 'فلسفتنا',
