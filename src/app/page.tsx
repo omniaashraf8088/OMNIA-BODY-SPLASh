@@ -5,6 +5,7 @@ import Header from '@/components/Header';
 import HeroVideo from '@/components/HeroVideo';
 import PromotionalBanner from '@/components/PromotionalBanner';
 import CollectionSection from '@/components/CollectionSection';
+import MenCampaignVideoSection from '@/components/MenCampaignVideoSection';
 import CinematicVideoSection from '@/components/CinematicVideoSection';
 import FragranceQuiz from '@/components/FragranceQuiz';
 import OurStorySection from '@/components/OurStorySection';
@@ -41,7 +42,10 @@ export default function HomePage() {
         {/* Section 3: Feminine & Masculine Collections + Product Cards */}
         <CollectionSection onSelectProduct={product => setSelectedProduct(product)} />
 
-        {/* Section 4: Second Cinematic Product-Only Video (The Art of Fragrance) */}
+        {/* Section 4: Men's Campaign Video (Male Model holding Navy Aqua) */}
+        <MenCampaignVideoSection />
+
+        {/* Section 5: Second Cinematic Product-Only Video (The Art of Fragrance) */}
         <CinematicVideoSection />
 
         {/* Section 5: Interactive Fragrance Discovery Quiz (Find Your Scent) */}
