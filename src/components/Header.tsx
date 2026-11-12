@@ -99,19 +99,60 @@ export default function Header({ onOpenSearch }: HeaderProps) {
             </button>
           </div>
 
-          {/* Center: Official MN Circular Monogram & OMNIA Wordmark */}
+          {/* Center: Official Animated MN Circular Monogram & Stationary OMNIA Wordmark */}
           <div className="flex flex-col items-center justify-center">
-            <Link href="/" className="flex flex-col items-center group">
+            <Link href="/" className="flex flex-col items-center group" aria-label="MN OMNIA Homepage">
               <div className="relative w-10 h-10 sm:w-12 sm:h-12 transition-transform duration-300 group-hover:scale-105">
-                <Image
-                  src="/assets/brand/mn_circle_monogram.png"
-                  alt="MN OMNIA"
-                  fill
-                  sizes="48px"
-                  priority
-                  className="object-contain"
-                />
+                {/* 1. Smoothly Rotating Outer Circular Ring (360° every 14s) */}
+                <div className="absolute inset-0 animate-mn-ring pointer-events-none">
+                  <Image
+                    src="/assets/brand/mn_outer_ring.png"
+                    alt=""
+                    fill
+                    sizes="48px"
+                    priority
+                    className="object-contain select-none"
+                  />
+                </div>
+
+                {/* 2. Perfectly Stationary Upright Centered MN Monogram */}
+                <div className="absolute inset-0 pointer-events-none">
+                  <Image
+                    src="/assets/brand/mn_stationary_letters.png"
+                    alt="MN"
+                    fill
+                    sizes="48px"
+                    priority
+                    className="object-contain select-none"
+                  />
+                </div>
+
+                {/* 3. Subtle Champagne-Gold Luminous Star Sparkle near upper edge */}
+                <div className="absolute -top-0.5 right-1 pointer-events-none animate-mn-star-glow">
+                  <svg
+                    className="w-2.5 h-2.5 text-[#C69A5A]"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path d="M12 0L14 9L23 12L14 15L12 24L10 15L1 12L10 9L12 0Z" />
+                  </svg>
+                </div>
+
+                {/* 4. Tiny Luminous Star Gently Orbiting the Emblem */}
+                <div className="absolute -inset-1 pointer-events-none animate-mn-orbit">
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
+                    <svg
+                      className="w-2 h-2 text-[#C69A5A] drop-shadow-[0_0_3px_rgba(198,154,90,0.7)]"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path d="M12 0L14 9L23 12L14 15L12 24L10 15L1 12L10 9L12 0Z" />
+                    </svg>
+                  </div>
+                </div>
               </div>
+
+              {/* 5. Stationary OMNIA Wordmark directly below */}
               <div className="relative w-24 sm:w-28 h-5 sm:h-6 mt-1">
                 <Image
                   src="/assets/brand/omnia_wordmark.png"

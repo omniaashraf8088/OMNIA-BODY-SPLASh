@@ -70,3 +70,58 @@
 [dir="rtl"] .font-serif {
   font-family: var(--font-serif), "Amiri", "Cairo", serif;
 }
+
+/* Luxury MN Logo Header Animations */
+@keyframes mnRingSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes mnStarGlow {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(0.85);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.15);
+    filter: drop-shadow(0 0 3px rgba(212, 175, 55, 0.7));
+  }
+}
+
+@keyframes mnOrbit {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-mn-ring {
+  animation: mnRingSpin 14s linear infinite;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+.animate-mn-star-glow {
+  animation: mnStarGlow 2.8s ease-in-out infinite;
+}
+
+.animate-mn-orbit {
+  animation: mnOrbit 16s linear infinite;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-mn-ring,
+  .animate-mn-star-glow,
+  .animate-mn-orbit {
+    animation: none !important;
+  }
+}
