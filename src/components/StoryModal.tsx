@@ -52,9 +52,9 @@ export default function StoryModal({ product, onClose, onSelectRelated }: StoryM
     <div
       role="dialog"
       aria-modal="true"
-      className="fixed inset-0 z-50 overflow-y-auto bg-black/60 backdrop-blur-sm flex items-start justify-center p-3 sm:p-6 py-8 sm:py-14 animate-in fade-in"
+      className="fixed inset-0 z-50 overflow-y-auto bg-black/60 backdrop-blur-sm flex justify-center p-3 sm:p-6 py-6 sm:py-10 animate-in fade-in"
     >
-      <div className="relative w-full max-w-4xl bg-[#FFF9F1] border border-[#E8D8C3] shadow-2xl my-auto">
+      <div className="relative w-full max-w-4xl bg-[#FFF9F1] border border-[#E8D8C3] shadow-2xl self-start">
         {/* Close Button */}
         <button
           onClick={onClose}
