@@ -2,6 +2,8 @@
 
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
+import { OFFICIAL_PRICING } from '@/data/products';
+
 interface CampaignSettings {
   isActive: boolean;
   discountPercentage: number;
@@ -21,11 +23,11 @@ interface CampaignContextType {
 
 const defaultCampaign: CampaignSettings = {
   isActive: true,
-  discountPercentage: 50,
+  discountPercentage: OFFICIAL_PRICING.discountPercentage,
   titleEn: 'DISCOVER OMNIA – 50% OFF',
   titleAr: 'اكتشفي أومنيا – خصم 50% حصري',
-  subtitleEn: 'Your favorite fragrance experience, now with an exclusive offer.',
-  subtitleAr: 'تجربة عطركِ المفضلة، الآن مع عرض افتتاحي استثنائي لفترة محدودة.',
+  subtitleEn: 'Original Price: 300 EGP • Now 150 EGP for a limited time.',
+  subtitleAr: 'السعر الأصلي: 300 ج.م • الآن 150 ج.م لفترة محدودة.',
   endDate: '2026-12-31',
   eligibleProducts: ['vanilliano', 'berry-muse', 'rose-eclat', 'peach-sugar', 'oud-noir', 'navy-edition']
 };
@@ -58,6 +60,11 @@ export function CampaignProvider({ children }: { children: React.ReactNode }) {
     if (!campaign.isActive || !campaign.eligibleProducts.includes(productId)) {
       return regularPrice;
     }
+    // Prevent double-discounting if already sale price (150 EGP)
+    if (regularPrice <= OFFICIAL_PRICING.salePrice) {
+      return OFFICIAL_PRICING.salePrice;
+    }
+    // Calculate official 50% off 300 EGP = 150 EGP
     return Math.round(regularPrice * (1 - campaign.discountPercentage / 100));
   };
 

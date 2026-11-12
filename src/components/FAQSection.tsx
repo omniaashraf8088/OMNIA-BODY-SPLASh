@@ -14,10 +14,10 @@ interface FAQItem {
 
 const FAQS: FAQItem[] = [
   {
-    qEn: 'How long does MN OMNIA body splash fragrance last on the skin?',
-    qAr: 'كم من الوقت يدوم عطر بودي سبلاش إم إن أومنيا على البشرة؟',
-    aEn: 'MN OMNIA is formulated with high-concentration fine fragrance oils that provide 6 to 8+ hours of noticeable longevity, outlasting ordinary body mists while maintaining a soft, elegant sillage.',
-    aAr: 'تتميز تركيبة إم إن أومنيا بنسبة تركيز زيوت عطرية فرنسية فاخرة تمنح ثباتاً يدوم من 6 إلى أكثر من 8 ساعات على البشرة والملابس، متفوقاً على معطرات الجسم التقليدية مع انتشار ناعم راقٍ.'
+    qEn: 'How does MN OMNIA body splash wear throughout the day?',
+    qAr: 'كيف تدوم رائحة بودي سبلاش إم إن أومنيا خلال اليوم؟',
+    aEn: 'MN OMNIA is crafted to provide a refreshing and elegant personal scent trail for your daily routine, combining effortless misting with rich, comforting fragrance character.',
+    aAr: 'صُممت عطور بودي سبلاش إم إن أومنيا لتمنحكِ انتعاشاً يومياً فاخراً وبصمة عطرية ناعمة ترافق روتينكِ اليومي بأناقة.'
   },
   {
     qEn: 'What are the delivery times and shipping costs across Egypt?',

@@ -270,7 +270,7 @@ export default function CheckoutPage() {
 
             <div className="space-y-4 max-h-[320px] overflow-y-auto">
               {items.map(item => {
-                const currentPrice = getDiscountedPrice(item.product.id, item.product.price);
+                const currentPrice = item.product.price;
                 return (
                   <div key={item.product.id} className="flex gap-3 pb-3 border-b border-[#E8D8C3]/50">
                     <div className="relative w-14 h-18 bg-[#F7F1E8] flex-shrink-0">

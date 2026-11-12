@@ -29,7 +29,7 @@ export default function ReviewsSection() {
       commentEn: newComment,
       commentAr: newComment,
       productName: newProduct,
-      verifiedBuyer: true
+      verifiedBuyer: false
     };
 
     setReviews([newRev, ...reviews]);
@@ -110,43 +110,67 @@ export default function ReviewsSection() {
           </form>
         )}
 
-        {/* Reviews Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {reviews.map(rev => (
-            <div
-              key={rev.id}
-              className="p-6 bg-[#F7F1E8] border border-[#E8D8C3] flex flex-col justify-between shadow-sm"
-            >
-              <div className="space-y-3">
-                <div className="flex items-center justify-between">
-                  <div className="flex text-amber-500">
-                    {[...Array(rev.rating)].map((_, i) => (
-                      <Star key={i} className="w-3.5 h-3.5 fill-current" />
-                    ))}
-                  </div>
-                  <span className="text-[10px] text-[#8B674D] font-sans">{rev.date}</span>
-                </div>
-
-                <p className="text-xs sm:text-sm text-[#493426] font-sans leading-relaxed italic">
-                  &ldquo;{language === 'en' ? rev.commentEn : rev.commentAr}&rdquo;
-                </p>
-              </div>
-
-              <div className="mt-6 pt-3 border-t border-[#E8D8C3] flex items-center justify-between">
-                <div>
-                  <h4 className="font-serif text-sm font-semibold text-[#493426]">{rev.author}</h4>
-                  <span className="text-[10px] font-sans text-[#8B674D]">{rev.productName}</span>
-                </div>
-                {rev.verifiedBuyer && (
-                  <span className="flex items-center gap-1 text-[10px] text-emerald-700 font-sans font-medium">
-                    <CheckCircle className="w-3 h-3" />
-                    <span>{language === 'en' ? 'Verified Buyer' : 'مشتري مؤكد'}</span>
-                  </span>
-                )}
-              </div>
+        {/* Reviews Grid or Elegant Empty State */}
+        {reviews.length === 0 ? (
+          <div className="text-center py-12 px-6 bg-[#F7F1E8] border border-[#E8D8C3] space-y-4 max-w-xl mx-auto">
+            <div className="w-12 h-12 mx-auto rounded-full bg-[#E8D8C3] flex items-center justify-center text-[#8B674D]">
+              <Sparkles className="w-5 h-5" />
             </div>
-          ))}
-        </div>
+            <h3 className="font-serif text-lg text-[#493426]">
+              {language === 'en' ? 'Authentic Fragrance Experiences' : 'تجارب وانطباعات عملاء أومنيا'}
+            </h3>
+            <p className="text-xs sm:text-sm text-[#8B674D] font-sans leading-relaxed">
+              {language === 'en'
+                ? 'We value genuine customer impressions. Be among the first to experience the collection and share your personal fragrance story.'
+                : 'نعتز بالتقييمات الحقيقية لعملائنا بعد تجربة العطور. كوني من أوائل من يشاركون تجربتهم مع تشكيلة إم إن أومنيا.'}
+            </p>
+            {!showAddForm && (
+              <button
+                onClick={() => setShowAddForm(true)}
+                className="mt-2 px-6 py-2.5 bg-[#493426] text-[#FFF9F1] hover:bg-[#8B674D] text-xs font-sans uppercase tracking-widest font-semibold transition-colors"
+              >
+                {t.productDetail.leaveReview}
+              </button>
+            )}
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {reviews.map(rev => (
+              <div
+                key={rev.id}
+                className="p-6 bg-[#F7F1E8] border border-[#E8D8C3] flex flex-col justify-between shadow-sm"
+              >
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <div className="flex text-amber-500">
+                      {[...Array(rev.rating)].map((_, i) => (
+                        <Star key={i} className="w-3.5 h-3.5 fill-current" />
+                      ))}
+                    </div>
+                    <span className="text-[10px] text-[#8B674D] font-sans">{rev.date}</span>
+                  </div>
+
+                  <p className="text-xs sm:text-sm text-[#493426] font-sans leading-relaxed italic">
+                    &ldquo;{language === 'en' ? rev.commentEn : rev.commentAr}&rdquo;
+                  </p>
+                </div>
+
+                <div className="mt-6 pt-3 border-t border-[#E8D8C3] flex items-center justify-between">
+                  <div>
+                    <h4 className="font-serif text-sm font-semibold text-[#493426]">{rev.author}</h4>
+                    <span className="text-[10px] font-sans text-[#8B674D]">{rev.productName}</span>
+                  </div>
+                  {rev.verifiedBuyer && (
+                    <span className="flex items-center gap-1 text-[10px] text-emerald-700 font-sans font-medium">
+                      <CheckCircle className="w-3 h-3" />
+                      <span>{language === 'en' ? 'Verified Buyer' : 'مشتري مؤكد'}</span>
+                    </span>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

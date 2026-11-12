@@ -52,8 +52,8 @@ export const translations = {
     story: {
       badge: 'OUR PHILOSOPHY',
       title: 'A LITTLE TOUCH OF LUXURY, EVERY DAY',
-      p1: 'MN OMNIA was born from a singular passion: to create an international fragrance experience that merges the effortless everyday freshness of a body splash with the depth, sophistication, and longevity of fine perfumery.',
-      p2: 'Every scent in the collection is formulated with the highest-grade fragrance essences, honoring both feminine grace and masculine power. We believe luxury is not an occasional indulgence—it is your daily signature.'
+      p1: 'MN OMNIA was born from a singular passion: to create a distinctive fragrance experience that merges the effortless everyday freshness of a body splash with refined artistic inspiration.',
+      p2: 'Every scent in the collection is crafted with care, honoring both feminine grace and masculine character. We believe luxury is not an occasional indulgence—it is your daily signature.'
     },
     quiz: {
       badge: 'FRAGRANCE CONCIERGE',
@@ -232,8 +232,8 @@ export const translations = {
     story: {
       badge: 'فلسفتنا',
       title: 'لمسة من الفخامة، في كل يوم',
-      p1: 'وُلدت علامة إم إن أومنيا من شغف استثنائي: تقديم تجربة عطور عالمية تجمع بين انتعاش البودي سبلاش اليومي الخفيف، وبين فخامة وثبات وتركيز العطور الباريسية الراقية.',
-      p2: 'تُصاغ كل زجاجة في تشكيلتنا من أرقى الخلاصات العطرية لتعكس رقة الأنوثة وقوة الحضور الرجالي. نؤمن بأن الفخامة ليست مناسبة نادرة، بل هي بصمتكِ اليومية الدائمة.'
+      p1: 'وُلدت علامة إم إن أومنيا من شغف استثنائي: تقديم تجربة عطور متميزة تجمع بين الانتعاش اليومي الخفيف ولمسة الفخامة الراقية.',
+      p2: 'صُممت كل زجاجة في تشكيلتنا بعناية لتعكس رقة الأنوثة وقوة الحضور الرجالي. نؤمن بأن الفخامة ليست مناسبة نادرة، بل هي بصمتكِ اليومية.'
     },
     quiz: {
       badge: 'مرشد العطور الذكي',

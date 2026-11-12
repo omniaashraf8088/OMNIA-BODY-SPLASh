@@ -89,7 +89,7 @@ export default function CartDrawer() {
             </div>
           ) : (
             items.map(item => {
-              const currentPrice = getDiscountedPrice(item.product.id, item.product.price);
+              const currentPrice = item.product.price;
               return (
                 <div
                   key={item.product.id}

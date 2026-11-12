@@ -240,7 +240,7 @@ export default function Footer({
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-[#D1B99C]/80 font-sans gap-4">
           <p>© 2026 MN OMNIA. {t.footer.rights}</p>
           <div className="flex items-center gap-6">
-            <span>CAIRO • DUBAI • MILAN</span>
+            <span>{language === 'en' ? 'FINE FRAGRANCE • 150 ML' : 'عطور فاخرة • 150 مل'}</span>
           </div>
         </div>
       </div>

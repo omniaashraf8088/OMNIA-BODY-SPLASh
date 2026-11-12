@@ -18,10 +18,10 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://mn-omnia.vercel.app'),
+  metadataBase: new URL('https://omniabodysplash.vercel.app'),
   title: 'MN OMNIA | Luxury Body Splash — Your Signature. Your Scent.',
   description:
-    'International luxury body splash fragrance brand specializing in feminine and masculine body splash scents. Vanilliano, Berry Muse, Rose Éclat, Peach Sugar, Oud Noir, and Navy Edition.',
+    'MN OMNIA luxury body splash collection. 150 ML fine body splashes for women and men: Vanilliano, Berry Muse, Rose Éclat, Peach Sugar, Oud Noir — Grey Edition, and Navy Edition. 150 EGP (50% Off Opening Offer).',
   icons: {
     icon: [
       { url: '/favicon.ico' },
@@ -30,9 +30,26 @@ export const metadata: Metadata = {
     apple: '/favicon.png',
   },
   openGraph: {
+    title: 'MN OMNIA | Luxury Body Splash Collection',
+    description: 'A little touch of luxury, every day. 150 ML Luxury Body Splash — 150 EGP with 50% discount.',
+    url: 'https://omniabodysplash.vercel.app',
+    siteName: 'MN OMNIA',
+    images: [
+      {
+        url: '/assets/products/vanilliano.png',
+        width: 1000,
+        height: 1250,
+        alt: 'MN OMNIA Luxury Body Splash Collection',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
     title: 'MN OMNIA | Luxury Body Splash',
     description: 'A little touch of luxury, every day. Discover our exclusive fragrance collection.',
-    images: ['/assets/posters/hero_poster.png'],
+    images: ['/assets/products/vanilliano.png'],
   },
 };
 

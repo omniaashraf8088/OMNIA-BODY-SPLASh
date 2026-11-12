@@ -21,8 +21,8 @@ export default function ProductCard({ product, onSelectStory }: ProductCardProps
   const { campaign, getDiscountedPrice } = useCampaign();
   const t = translations[language];
 
-  const currentPrice = getDiscountedPrice(product.id, product.price);
-  const isDiscounted = campaign.isActive && currentPrice < product.originalPrice;
+  const currentPrice = product.price;
+  const isDiscounted = product.price < product.originalPrice;
 
   return (
     <div className="group relative bg-[#FFF9F1] border border-[#E8D8C3] hover:border-[#D1B99C] transition-all duration-500 flex flex-col justify-between overflow-hidden shadow-sm hover:shadow-xl">
@@ -47,9 +47,9 @@ export default function ProductCard({ product, onSelectStory }: ProductCardProps
           {product.volume}
         </div>
 
-        {/* Clickable Image leading to Story Modal/Page */}
-        <button
-          onClick={() => onSelectStory?.(product)}
+        {/* Clickable Image leading to Product Detail Page */}
+        <Link
+          href={`/product/${product.id}`}
           className="relative w-full h-full flex items-center justify-center focus:outline-none"
         >
           <div className="relative w-full h-full max-h-[380px] transition-transform duration-700 ease-out group-hover:scale-105">
@@ -61,17 +61,17 @@ export default function ProductCard({ product, onSelectStory }: ProductCardProps
               className="object-contain object-center"
             />
           </div>
-        </button>
+        </Link>
 
         {/* Hover Quick Action Overlay */}
         <div className="absolute inset-x-4 bottom-4 z-10 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 flex gap-2">
-          <button
-            onClick={() => onSelectStory?.(product)}
+          <Link
+            href={`/product/${product.id}`}
             className="flex-1 py-2.5 bg-white/95 backdrop-blur-md text-[#493426] hover:bg-[#493426] hover:text-[#FFF9F1] transition-colors text-[11px] font-sans font-semibold uppercase tracking-wider flex items-center justify-center gap-1.5 shadow-md"
           >
             <Eye className="w-3.5 h-3.5" />
             <span>{t.collection.discoverScent}</span>
-          </button>
+          </Link>
           <button
             onClick={() => addToCart(product, 1)}
             className="px-3.5 py-2.5 bg-[#493426] text-[#FFF9F1] hover:bg-[#8B674D] transition-colors flex items-center justify-center shadow-md"
@@ -92,11 +92,10 @@ export default function ProductCard({ product, onSelectStory }: ProductCardProps
           </span>
 
           {/* Product Name */}
-          <h3
-            onClick={() => onSelectStory?.(product)}
-            className="text-xl font-serif text-[#493426] font-normal tracking-wide cursor-pointer hover:text-[#8B674D] transition-colors"
-          >
-            {language === 'en' ? product.nameEn : product.nameAr}
+          <h3 className="text-xl font-serif text-[#493426] font-normal tracking-wide hover:text-[#8B674D] transition-colors">
+            <Link href={`/product/${product.id}`}>
+              {language === 'en' ? product.nameEn : product.nameAr}
+            </Link>
           </h3>
 
           {/* Short Emotional Tagline */}

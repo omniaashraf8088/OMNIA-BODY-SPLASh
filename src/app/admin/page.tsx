@@ -151,8 +151,8 @@ export default function AdminDashboard() {
                     <th className="p-3 text-start">Bottle</th>
                     <th className="p-3 text-start">Name</th>
                     <th className="p-3 text-start">Category</th>
-                    <th className="p-3 text-start">Regular Price</th>
-                    <th className="p-3 text-start">Promo Price</th>
+                    <th className="p-3 text-start">Original Price</th>
+                    <th className="p-3 text-start">Sale Price (50% OFF)</th>
                     <th className="p-3 text-start">Volume</th>
                     <th className="p-3 text-end">Actions</th>
                   </tr>
@@ -171,9 +171,9 @@ export default function AdminDashboard() {
                       <td className="p-3 uppercase text-[10px] tracking-wider text-[#8B674D]">
                         {p.category}
                       </td>
-                      <td className="p-3 font-semibold">{p.price} EGP</td>
+                      <td className="p-3 font-semibold line-through text-[#8B674D]">{p.originalPrice} EGP</td>
                       <td className="p-3 text-emerald-800 font-bold">
-                        {campaign.isActive ? Math.round(p.price * 0.5) : p.price} EGP
+                        {p.price} EGP
                       </td>
                       <td className="p-3">{p.volume}</td>
                       <td className="p-3 text-end">
@@ -198,15 +198,27 @@ export default function AdminDashboard() {
                   className="bg-[#FFF9F1] border border-[#E8D8C3] max-w-lg w-full p-6 space-y-4 shadow-2xl max-h-[90vh] overflow-y-auto text-xs font-sans"
                 >
                   <h3 className="font-serif text-lg text-[#493426]">Edit {editingProduct.nameEn}</h3>
-                  <div>
-                    <label className="block text-[#8B674D] mb-1">Price (EGP)</label>
-                    <input
-                      type="number"
-                      value={editingProduct.price}
-                      onChange={e => setEditingProduct({ ...editingProduct, price: Number(e.target.value) })}
-                      className="w-full border border-[#D1B99C] p-2 bg-white"
-                      required
-                    />
+                  <div className="grid grid-cols-2 gap-3">
+                    <div>
+                      <label className="block text-[#8B674D] mb-1">Original Price (EGP)</label>
+                      <input
+                        type="number"
+                        value={editingProduct.originalPrice}
+                        onChange={e => setEditingProduct({ ...editingProduct, originalPrice: Number(e.target.value) })}
+                        className="w-full border border-[#D1B99C] p-2 bg-white"
+                        required
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-[#8B674D] mb-1">Sale Price (EGP)</label>
+                      <input
+                        type="number"
+                        value={editingProduct.price}
+                        onChange={e => setEditingProduct({ ...editingProduct, price: Number(e.target.value) })}
+                        className="w-full border border-[#D1B99C] p-2 bg-white"
+                        required
+                      />
+                    </div>
                   </div>
                   <div>
                     <label className="block text-[#8B674D] mb-1">Tagline (EN)</label>
