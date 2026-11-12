@@ -35,7 +35,14 @@ function ProductDetailContent() {
   const { campaign } = useCampaign();
   const t = translations[language];
 
-  const product = PRODUCTS.find(p => p.id === rawId || p.slug === rawId) || PRODUCTS[0];
+  const aliasMap: Record<string, string> = {
+    'berry-muse': 'berry',
+    'rose-eclat': 'rose',
+    'peach-sugar': 'peach',
+    'navy-edition': 'navy-aqua'
+  };
+  const resolvedId = aliasMap[rawId.toLowerCase()] || rawId;
+  const product = PRODUCTS.find(p => p.id === resolvedId || p.slug === resolvedId || p.id === rawId || p.slug === rawId) || PRODUCTS[0];
 
   const [quantity, setQuantity] = useState(1);
   const [added, setAdded] = useState(false);
@@ -48,8 +55,10 @@ function ProductDetailContent() {
   const isDiscounted = true;
 
   const galleryImages = [
-    { src: product.image, labelEn: 'Campaign Atmosphere', labelAr: 'الأجواء العطرية' },
-    { src: product.bottleImage, labelEn: 'Bottle & Packaging', labelAr: 'العبوة والتصميم' }
+    { src: product.image, labelEn: 'Approved Campaign Packshot', labelAr: 'العبوة والتصميم الرسمي' },
+    ...(product.bottleImage && product.bottleImage !== product.image
+      ? [{ src: product.bottleImage, labelEn: 'Bottle & Packaging', labelAr: 'العبوة والتصميم' }]
+      : [])
   ];
 
   const handleAdd = () => {
@@ -164,33 +173,35 @@ function ProductDetailContent() {
               </div>
             </div>
 
-            {/* Gallery Selector Thumbnails */}
-            <div className="grid grid-cols-4 gap-3 sm:gap-4">
-              {galleryImages.map((img, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setActiveImageIndex(idx)}
-                  className={`relative aspect-[4/5] bg-[#FFF9F1] border transition-all duration-300 p-2 flex flex-col items-center justify-center overflow-hidden ${
-                    activeImageIndex === idx
-                      ? 'border-[#493426] ring-2 ring-[#493426]/30 shadow-md'
-                      : 'border-[#E8D8C3] hover:border-[#8B674D] opacity-75 hover:opacity-100'
-                  }`}
-                >
-                  <div className="relative w-full h-full">
-                    <Image
-                      src={img.src}
-                      alt={language === 'en' ? img.labelEn : img.labelAr}
-                      fill
-                      sizes="120px"
-                      className="object-contain"
-                    />
-                  </div>
-                  <span className="block text-[9px] uppercase tracking-wider font-sans text-[#8B674D] mt-1 truncate w-full text-center">
-                    {language === 'en' ? img.labelEn : img.labelAr}
-                  </span>
-                </button>
-              ))}
-            </div>
+            {/* Gallery Selector Thumbnails (shown when multiple images available) */}
+            {galleryImages.length > 1 && (
+              <div className="grid grid-cols-4 gap-3 sm:gap-4">
+                {galleryImages.map((img, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setActiveImageIndex(idx)}
+                    className={`relative aspect-[4/5] bg-[#FFF9F1] border transition-all duration-300 p-2 flex flex-col items-center justify-center overflow-hidden ${
+                      activeImageIndex === idx
+                        ? 'border-[#493426] ring-2 ring-[#493426]/30 shadow-md'
+                        : 'border-[#E8D8C3] hover:border-[#8B674D] opacity-75 hover:opacity-100'
+                    }`}
+                  >
+                    <div className="relative w-full h-full">
+                      <Image
+                        src={img.src}
+                        alt={language === 'en' ? img.labelEn : img.labelAr}
+                        fill
+                        sizes="120px"
+                        className="object-contain"
+                      />
+                    </div>
+                    <span className="block text-[9px] uppercase tracking-wider font-sans text-[#8B674D] mt-1 truncate w-full text-center">
+                      {language === 'en' ? img.labelEn : img.labelAr}
+                    </span>
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
           {/* Right Column: Clear Visual Purchasing Hierarchy */}
@@ -405,27 +416,83 @@ function ProductDetailContent() {
               </h3>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-              <div className="relative aspect-[4/5] max-h-[460px] bg-[#F7F1E8] border border-[#E8D8C3] p-6 flex items-center justify-center">
-                <Image
-                  src={product.image}
-                  alt={language === 'en' ? `${product.nameEn} Campaign` : `حملة ${product.nameAr}`}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-contain p-4 drop-shadow-md"
-                />
-              </div>
+            {product.bottleImage && product.bottleImage !== product.image ? (
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                <div className="relative aspect-[4/5] max-h-[460px] bg-[#F7F1E8] border border-[#E8D8C3] p-6 flex items-center justify-center">
+                  <Image
+                    src={product.image}
+                    alt={language === 'en' ? `${product.nameEn} Campaign` : `حملة ${product.nameAr}`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-contain p-4 drop-shadow-md"
+                  />
+                </div>
 
-              <div className="relative aspect-[4/5] max-h-[460px] bg-[#F7F1E8] border border-[#E8D8C3] p-6 flex items-center justify-center">
-                <Image
-                  src={product.bottleImage}
-                  alt={language === 'en' ? `${product.nameEn} Bottle Studio` : `عبوة ${product.nameAr}`}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-contain p-4 drop-shadow-md"
-                />
+                <div className="relative aspect-[4/5] max-h-[460px] bg-[#F7F1E8] border border-[#E8D8C3] p-6 flex items-center justify-center">
+                  <Image
+                    src={product.bottleImage}
+                    alt={language === 'en' ? `${product.nameEn} Bottle Studio` : `عبوة ${product.nameAr}`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-contain p-4 drop-shadow-md"
+                  />
+                </div>
               </div>
-            </div>
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                <div className="md:col-span-6 relative aspect-[4/5] max-h-[480px] bg-[#F7F1E8] border border-[#E8D8C3] p-6 sm:p-8 flex items-center justify-center">
+                  <Image
+                    src={product.image}
+                    alt={language === 'en' ? `${product.nameEn} Official Bottle` : `العبوة الرسمية ${product.nameAr}`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-contain p-2 drop-shadow-md"
+                  />
+                </div>
+
+                <div className="md:col-span-6 space-y-4 text-xs font-sans text-[#493426]">
+                  <div className="p-4 bg-[#F7F1E8] border border-[#E8D8C3]/70 space-y-1">
+                    <span className="text-[#8B674D] uppercase tracking-wider block text-[10px] font-semibold">
+                      {language === 'en' ? 'Authentic Packaging' : 'التصميم الأصلي المعتمد'}
+                    </span>
+                    <p className="font-serif text-sm font-semibold text-[#493426]">
+                      {language === 'en' ? 'Crystal-Clear Protective Cap & Fine Mist Atomizer' : 'غطاء حماية شفاف ومضخة رذاذ فائقة الدقة'}
+                    </p>
+                    <p className="text-[#8B674D] text-[11px] leading-relaxed">
+                      {language === 'en'
+                        ? 'Precision engineered for an ultra-fine, velvety dispersion of fragrance that envelops the skin evenly.'
+                        : 'صُممت المضخة لتوزيع رذاذ مخملي فائق النعومة يغمر البشرة بانسجام متوازن.'}
+                    </p>
+                  </div>
+
+                  <div className="p-4 bg-[#F7F1E8] border border-[#E8D8C3]/70 space-y-1">
+                    <span className="text-[#8B674D] uppercase tracking-wider block text-[10px] font-semibold">
+                      {language === 'en' ? 'Official Bottle Volume' : 'سعة العبوة الرسمية'}
+                    </span>
+                    <p className="font-serif text-sm font-semibold text-[#493426]">
+                      {OFFICIAL_PRICING.volume} (5.1 FL OZ)
+                    </p>
+                    <p className="text-[#8B674D] text-[11px] leading-relaxed">
+                      {language === 'en'
+                        ? 'Generous everyday luxury size formulated for lasting daily pleasure.'
+                        : 'حجم فاخر مثالي للاستخدام اليومي المستمر يمنحك انتعاشاً يدوم.'}
+                    </p>
+                  </div>
+
+                  <div className="p-4 bg-[#F7F1E8] border border-[#E8D8C3]/70 space-y-1">
+                    <span className="text-[#8B674D] uppercase tracking-wider block text-[10px] font-semibold">
+                      {language === 'en' ? 'Visual Identity' : 'الهوية البصرية'}
+                    </span>
+                    <p className="font-serif text-sm font-semibold text-[#493426]">
+                      {language === 'en' ? product.familyEn : product.familyAr}
+                    </p>
+                    <p className="text-[#8B674D] text-[11px] leading-relaxed">
+                      {language === 'en' ? product.taglineEn : product.taglineAr}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
 
           {/* 6. RELATED FRAGRANCES */}

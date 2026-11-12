@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { Star, CheckCircle, MessageSquarePlus, Sparkles } from 'lucide-react';
-import { INITIAL_REVIEWS } from '@/data/products';
+import { INITIAL_REVIEWS, PRODUCTS } from '@/data/products';
 import { Review } from '@/types';
 import { useLanguage } from '@/context/LanguageContext';
 import { translations } from '@/data/translations';
@@ -85,12 +85,11 @@ export default function ReviewsSection() {
                 onChange={e => setNewProduct(e.target.value)}
                 className="bg-white border border-[#D1B99C] px-3.5 py-2.5 text-xs text-[#493426] focus:outline-none"
               >
-                <option value="Vanilliano">Vanilliano</option>
-                <option value="Berry Muse">Berry Muse</option>
-                <option value="Rose Éclat">Rose Éclat</option>
-                <option value="Peach Sugar">Peach Sugar</option>
-                <option value="Oud Noir">Oud Noir</option>
-                <option value="Navy Edition">Navy Edition</option>
+                {PRODUCTS.map(p => (
+                  <option key={p.id} value={language === 'en' ? p.nameEn : p.nameAr}>
+                    {language === 'en' ? p.nameEn : p.nameAr}
+                  </option>
+                ))}
               </select>
             </div>
             <textarea

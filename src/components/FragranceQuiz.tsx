@@ -40,23 +40,26 @@ export default function FragranceQuiz({ onSelectProduct }: FragranceQuizProps) {
 
   const determineMatch = (ans: { q1?: string; q2?: string; q3?: string }): Product => {
     // Intelligent matching based on preferences
-    if (ans.q1 === 'sweet' || ans.q2 === 'vanilla' || ans.q3 === 'comforting') {
+    if (ans.q2 === 'vanilla' || ans.q3 === 'comforting' || ans.q1 === 'sweet') {
       return PRODUCTS.find(p => p.id === 'vanilliano') || PRODUCTS[0];
     }
-    if (ans.q1 === 'fruity' || ans.q2 === 'berries' || ans.q3 === 'playful') {
-      return PRODUCTS.find(p => p.id === 'berry-muse') || PRODUCTS[1];
+    if (ans.q2 === 'berries' || ans.q3 === 'playful' || ans.q1 === 'fruity') {
+      return PRODUCTS.find(p => p.id === 'berry') || PRODUCTS[1];
     }
-    if (ans.q1 === 'floral' || ans.q2 === 'rose' || ans.q3 === 'romantic') {
-      return PRODUCTS.find(p => p.id === 'rose-eclat') || PRODUCTS[2];
+    if (ans.q2 === 'rose' || ans.q3 === 'romantic' || ans.q1 === 'floral') {
+      return PRODUCTS.find(p => p.id === 'rose') || PRODUCTS[2];
     }
     if (ans.q2 === 'peach' || ans.q3 === 'luminous') {
-      return PRODUCTS.find(p => p.id === 'peach-sugar') || PRODUCTS[3];
+      return PRODUCTS.find(p => p.id === 'peach') || PRODUCTS[3];
     }
-    if (ans.q1 === 'woody' || ans.q2 === 'oud' || ans.q3 === 'commanding') {
-      return PRODUCTS.find(p => p.id === 'oud-noir') || PRODUCTS[4];
+    if (ans.q2 === 'oud' || ans.q3 === 'commanding') {
+      return PRODUCTS.find(p => p.id === 'oud-noir') || PRODUCTS.find(p => p.id === 'oud') || PRODUCTS[4];
     }
     if (ans.q1 === 'aquatic' || ans.q2 === 'ocean' || ans.q3 === 'maritime') {
-      return PRODUCTS.find(p => p.id === 'navy-edition') || PRODUCTS[5];
+      return PRODUCTS.find(p => p.id === 'navy-aqua') || PRODUCTS[5];
+    }
+    if (ans.q1 === 'woody') {
+      return PRODUCTS.find(p => p.id === 'grey-musk') || PRODUCTS[0];
     }
     return PRODUCTS[0];
   };
