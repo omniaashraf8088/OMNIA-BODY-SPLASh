@@ -15,46 +15,67 @@ export default function DreamWorldIntro({ onComplete, forcePlay = false }: Dream
   const [hasVisited, setHasVisited] = useState<boolean>(true);
 
   useEffect(() => {
-    // Check session persistence
-    const visited = sessionStorage.getItem('omnia_intro_seen');
-    if (!visited || forcePlay) {
-      setHasVisited(false);
-      // Timeline of luxury animation
-      // 0ms: Circle starts drawing
-      // 1200ms: MN monogram appears
-      // 2200ms: OMNIA wordmark appears
-      // 3200ms: Shimmer light sweep across logo
-      // 4500ms: Cinematic fade into hero video
-      const t1 = setTimeout(() => setPhase('monogram'), 1200);
-      const t2 = setTimeout(() => setPhase('wordmark'), 2200);
-      const t3 = setTimeout(() => setPhase('shimmer'), 3200);
-      const t4 = setTimeout(() => setPhase('fading'), 4500);
-      const t5 = setTimeout(() => {
+    // Check session persistence safely
+    try {
+      const visited = sessionStorage.getItem('omnia_intro_seen');
+      if (visited && !forcePlay) {
         setPhase('completed');
-        sessionStorage.setItem('omnia_intro_seen', 'true');
         onComplete?.();
-      }, 5300);
-
-      return () => {
-        clearTimeout(t1);
-        clearTimeout(t2);
-        clearTimeout(t3);
-        clearTimeout(t4);
-        clearTimeout(t5);
-      };
-    } else {
-      setPhase('completed');
-      onComplete?.();
+        return;
+      }
+    } catch {
+      // Ignore storage errors in privacy mode
     }
+
+    setHasVisited(false);
+    // Snappy luxury animation timeline (total ~1.8s)
+    const t1 = setTimeout(() => setPhase('monogram'), 350);
+    const t2 = setTimeout(() => setPhase('wordmark'), 700);
+    const t3 = setTimeout(() => setPhase('shimmer'), 1100);
+    const t4 = setTimeout(() => setPhase('fading'), 1500);
+    const t5 = setTimeout(() => {
+      setPhase('completed');
+      try {
+        sessionStorage.setItem('omnia_intro_seen', 'true');
+      } catch {}
+      onComplete?.();
+    }, 1900);
+
+    // Fast dismiss on any user scroll or touch
+    const onUserInteract = () => {
+      setPhase('fading');
+      setTimeout(() => {
+        setPhase('completed');
+        try {
+          sessionStorage.setItem('omnia_intro_seen', 'true');
+        } catch {}
+        onComplete?.();
+      }, 300);
+    };
+
+    window.addEventListener('scroll', onUserInteract, { passive: true, once: true });
+    window.addEventListener('keydown', onUserInteract, { once: true });
+
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+      clearTimeout(t3);
+      clearTimeout(t4);
+      clearTimeout(t5);
+      window.removeEventListener('scroll', onUserInteract);
+      window.removeEventListener('keydown', onUserInteract);
+    };
   }, [forcePlay, onComplete]);
 
   const handleSkip = () => {
     setPhase('fading');
     setTimeout(() => {
       setPhase('completed');
-      sessionStorage.setItem('omnia_intro_seen', 'true');
+      try {
+        sessionStorage.setItem('omnia_intro_seen', 'true');
+      } catch {}
       onComplete?.();
-    }, 400);
+    }, 250);
   };
 
   if (hasVisited && !forcePlay && phase === 'completed') {
