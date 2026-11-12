@@ -1,26 +1,72 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --cream-beige: #F7F1E8;
+    --soft-beige: #E8D8C3;
+    --latte: #D1B99C;
+    --caramel: #B89573;
+    --cafe-brown: #8B674D;
+    --dark-mocha: #493426;
+    --warm-ivory: #FFF9F1;
+    --bronze-gold: #C69A5A;
+  }
+
+  /* Force LIGHT MODE ONLY as required */
+  html, body {
+    background-color: #F7F1E8;
+    color: #493426;
+    color-scheme: light;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Custom Luxury Animations */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-150%);
+  }
+  100% {
+    transform: translateX(150%);
+  }
+}
+
+@keyframes floatParticle {
+  0% {
+    transform: translateY(0px) scale(0.8);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translateY(-25px) scale(1.1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-50px) scale(0.6);
+    opacity: 0;
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 1.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.animate-float-particle {
+  animation: floatParticle 4s ease-in-out infinite;
+}
+
+/* Luxury Radial Vignette */
+.bg-radial-vignette {
+  background: radial-gradient(circle at center, transparent 35%, rgba(73, 52, 38, 0.35) 100%);
+}
+
+/* RTL Typography Enhancements */
+[dir="rtl"] {
+  font-family: var(--font-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Cairo", "Amiri", sans-serif;
+}
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3,
+[dir="rtl"] h4,
+[dir="rtl"] h5,
+[dir="rtl"] .font-serif {
+  font-family: var(--font-serif), "Amiri", "Cairo", serif;
 }
