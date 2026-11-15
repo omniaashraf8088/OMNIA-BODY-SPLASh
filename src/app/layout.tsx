@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     siteName: 'MN OMNIA',
     images: [
       {
-        url: '/assets/products/vanilla.png',
+        url: '/assets/products/vanilla_studio.jpg',
         width: 1000,
         height: 1250,
         alt: 'MN OMNIA Luxury Fragrance & Beauty Collection',
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'MN OMNIA | Luxury Body Splash & Beauty',
     description: 'A little touch of luxury, every day. Discover our exclusive fragrance and beauty collection.',
-    images: ['/assets/products/vanilla.png'],
+    images: ['/assets/products/vanilla_studio.jpg'],
   },
 };
 
