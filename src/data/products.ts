@@ -8,6 +8,14 @@ export const OFFICIAL_PRICING = {
   volume: '150 ML'
 } as const;
 
+export const LIP_GLOSS_PRICING = {
+  originalPrice: 100,
+  salePrice: 50,
+  discountPercentage: 50,
+  currency: 'EGP',
+  volume: '10 ML'
+} as const;
+
 export const PRODUCTS: Product[] = [
   // ==========================================
   // WOMEN'S COLLECTION: BODY SPLASH (3 PRODUCTS)
@@ -171,8 +179,8 @@ export const PRODUCTS: Product[] = [
     taglineAr: 'لمعان نيود طبيعي وراقي لإطلالة يومية جذابة',
     familyEn: 'High-Shine Warm Nude Glaze',
     familyAr: 'ملمع شفاه نيود دافئ فائق اللمعان',
-    price: OFFICIAL_PRICING.salePrice,
-    originalPrice: OFFICIAL_PRICING.originalPrice,
+    price: LIP_GLOSS_PRICING.salePrice,
+    originalPrice: LIP_GLOSS_PRICING.originalPrice,
     volume: '10 ML',
     image: '/assets/products/lipgloss_nude.png',
     bottleImage: '/assets/products/lipgloss_nude.png',
@@ -219,8 +227,8 @@ export const PRODUCTS: Product[] = [
     taglineAr: 'بريق الورد المنعش لإشراقة أنثوية ساحرة',
     familyEn: 'Luminous Romantic Pink Glaze',
     familyAr: 'ملمع شفاه روز زهري متوهج بالأنوثة',
-    price: OFFICIAL_PRICING.salePrice,
-    originalPrice: OFFICIAL_PRICING.originalPrice,
+    price: LIP_GLOSS_PRICING.salePrice,
+    originalPrice: LIP_GLOSS_PRICING.originalPrice,
     volume: '10 ML',
     image: '/assets/products/lipgloss_rose.png',
     bottleImage: '/assets/products/lipgloss_rose.png',
