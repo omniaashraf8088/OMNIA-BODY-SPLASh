@@ -207,7 +207,7 @@ export default function CollectionSection({ onSelectProduct }: CollectionSection
                 <div className="flex items-center gap-2 mb-2">
                   <Sparkles className="w-4 h-4 text-[#8B674D] group-hover:text-[#493426] transition-colors" />
                   <span className="text-[10px] font-sans font-bold tracking-widest uppercase text-[#8B674D]">
-                    10 ML • {language === 'en' ? '2 Shades' : 'درجتان'}
+                    1 ML • {language === 'en' ? '2 Shades' : 'درجتان'}
                   </span>
                 </div>
                 <h4 className="text-xl sm:text-2xl font-serif tracking-wide font-medium">

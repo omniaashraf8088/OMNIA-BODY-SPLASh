@@ -118,7 +118,7 @@ export default function WomensCollectionPage() {
                     <span>{language === 'en' ? 'DISCOVER LIP GLOSS' : 'استعراض ملمع الشفاه'}</span>
                     <ArrowIcon />
                   </span>
-                  <span className="text-xs font-serif italic text-[#8B674D]">10 ML</span>
+                  <span className="text-xs font-serif italic text-[#8B674D]">1 ML</span>
                 </div>
               </div>
             </Link>

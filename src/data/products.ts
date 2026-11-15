@@ -13,7 +13,7 @@ export const LIP_GLOSS_PRICING = {
   salePrice: 50,
   discountPercentage: 50,
   currency: 'EGP',
-  volume: '10 ML'
+  volume: '1 ML'
 } as const;
 
 export const PRODUCTS: Product[] = [
@@ -181,7 +181,7 @@ export const PRODUCTS: Product[] = [
     familyAr: 'ملمع شفاه نيود دافئ فائق اللمعان',
     price: LIP_GLOSS_PRICING.salePrice,
     originalPrice: LIP_GLOSS_PRICING.originalPrice,
-    volume: '10 ML',
+    volume: '1 ML',
     image: '/assets/products/lipgloss_nude.png',
     bottleImage: '/assets/products/lipgloss_nude.png',
     accentColor: '#A9684C',
@@ -229,7 +229,7 @@ export const PRODUCTS: Product[] = [
     familyAr: 'ملمع شفاه روز زهري متوهج بالأنوثة',
     price: LIP_GLOSS_PRICING.salePrice,
     originalPrice: LIP_GLOSS_PRICING.originalPrice,
-    volume: '10 ML',
+    volume: '1 ML',
     image: '/assets/products/lipgloss_rose.png',
     bottleImage: '/assets/products/lipgloss_rose.png',
     accentColor: '#C86378',
