@@ -204,17 +204,19 @@ export const PRODUCTS: Product[] = [
     featuresEn: [
       'Universal warm nude shade carefully balanced for every skin tone.',
       'Brilliant high-shine reflective finish with zero stickiness or heaviness.',
-      'Moisturizing formula that cushions and visibly smooths lip lines.'
+      'Moisturizing formula that cushions and visibly smooths lip lines.',
+      'Can be applied on moisturized lips, worn alone for natural sheen, or layered with a lip balm to boost and enhance color.'
     ],
     featuresAr: [
       'درجة نيود دافئة ومثالية تتناغم بانسجام مع كافة ألوان البشرة.',
       'لمعان زجاجي فائق الانعكاس بدون أي إحساس بالالتصاق أو الثقل.',
-      'تركيبة مرطبة تحمي الشفاه من الجفاف وتمنحها مظهراً صحياً وممتلئاً.'
+      'تركيبة مرطبة تحمي الشفاه من الجفاف وتمنحها مظهراً صحياً وممتلئاً.',
+      'بالإمكان ترطيب الشفاه ووضعه، أو استخدامه منفرداً، أو وضعه مع ليب بالم لتعزيز اللون ومنح شفتيكِ بعداً جذاباً.'
     ],
-    whyBuyEn: 'The ultimate daily essential for your purse. Wear it bare for a healthy natural sheen or layer over lip liner for full, juicy dimension that lasts through the day.',
-    whyBuyAr: 'المنتج الأساسي الذي لا غنى عنه في حقيبتك اليومية؛ يمنحك شفايف جذابة وممتلئة بلمعان راقٍ يناسب الصباح والمساء.',
-    usageEn: 'Glide the soft wand applicator smoothly across clean lips. Reapply throughout the day for ongoing hydration and lustrous shine.',
-    usageAr: 'مرري أداة التطبيق الناعمة على الشفاه النظيفة من المنتصف باتجاه الزوايا، وكرري الاستخدام عند الرغبة في ترطيب ولمعان إضافي.'
+    whyBuyEn: 'The ultimate daily essential for your purse. Wear it bare for a healthy natural sheen, on moisturized lips, or layer over a lip balm to enhance color and juicy dimension.',
+    whyBuyAr: 'المنتج الأساسي الذي لا غنى عنه في حقيبتك اليومية؛ يمنحك شفايف جذابة وممتلئة بلمعان راقٍ. متعدد الاستخدامات: يمكن استخدامه منفرداً، أو بعد ترطيب الشفاه، أو وضعه مع ليب بالم لتعزيز اللون.',
+    usageEn: 'Glide the soft wand applicator smoothly across clean lips. Can be applied on moisturized lips, worn alone for natural shine, or layered with lip balm to enhance color.',
+    usageAr: 'مرري أداة التطبيق الناعمة على الشفاه النظيفة من المنتصف باتجاه الزوايا. بالإمكان ترطيب الشفاه ووضعه، أو استخدامه منفرداً، أو وضعه مع ليب بالم لتعزيز اللون وترطيب مضاعف.'
   },
   {
     id: 'lipgloss-rose',
@@ -252,17 +254,19 @@ export const PRODUCTS: Product[] = [
     featuresEn: [
       'Romantic rose-pink tint that awakens and brightens your complexion.',
       'Ultra-glossy mirror finish with a silky, hydrating, weightless feel.',
-      'Deeply nourishing texture that leaves lips touchably soft and pillowy.'
+      'Deeply nourishing texture that leaves lips touchably soft and pillowy.',
+      'Can be applied on moisturized lips, worn alone for radiant pink luster, or layered with a lip balm to boost and enhance color.'
     ],
     featuresAr: [
       'لون وردي نضر يمنح الشفاه إشراقة فورية ومظهراً ممتلئاً ومشرقاً.',
       'لمعان مائي زجاجي فائق النعومة وخفيف تماماً على الشفاه.',
-      'عناية وترطيب فائق ينعم ملمس الشفاه ويحافظ على طراوتها طوال اليوم.'
+      'عناية وترطيب فائق ينعم ملمس الشفاه ويحافظ على طراوتها طوال اليوم.',
+      'بالإمكان ترطيب الشفاه ووضعه، أو استخدامه منفرداً، أو وضعه مع ليب بالم لتعزيز اللون وإبراز جمال الشفاه.'
     ],
-    whyBuyEn: 'Experience effortless beauty with a single stroke. Rose delivers that coveted "freshly bitten" pink glow with a mirror-shine gloss that complements every occasion.',
-    whyBuyAr: 'امنحي شفتيكِ تورد الورد الطبيعي وإشراقة لا تُقاوم. روز هو خيارك الأنسب لإطلالة رومانسية نضرة ومفعمة بالحيوية في كل وقت.',
-    usageEn: 'Apply directly onto lips using the cushioned doe-foot applicator for a soft, radiant, glass-like shine.',
-    usageAr: 'ضعي طبقة متساوية على الشفاه باستخدام أداة التطبيق للحصول على مظهر مائي لامع وناعم.'
+    whyBuyEn: 'Experience effortless beauty with a single stroke. Rose delivers that coveted "freshly bitten" pink glow with a mirror-shine gloss. Wear alone, on moisturized lips, or layer with a lip balm to enhance color and deep hydration.',
+    whyBuyAr: 'امنحي شفتيكِ تورد الورد الطبيعي وإشراقة لا تُقاوم. روز هو خيارك الأنسب لإطلالة رومانسية نضرة. يمكنكِ استخدامه منفرداً، أو ترطيب الشفاه ووضعه، أو دمجه مع ليب بالم لتعزيز اللون.',
+    usageEn: 'Apply directly onto lips using the cushioned doe-foot applicator for a soft, radiant, glass-like shine. Can be worn alone on moisturized lips or over lip balm to enhance color.',
+    usageAr: 'ضعي طبقة متساوية على الشفاه باستخدام أداة التطبيق. بالإمكان ترطيب الشفاه ووضعه، أو استخدامه منفرداً، أو وضعه مع ليب بالم لتعزيز اللون ومنح لمعان وردي ممتلئ.'
   },
 
   // ==========================================
