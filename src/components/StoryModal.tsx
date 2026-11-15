@@ -26,8 +26,8 @@ export default function StoryModal({ product, onClose, onSelectRelated }: StoryM
 
   if (!product) return null;
 
-  const currentPrice = OFFICIAL_PRICING.salePrice;
-  const originalPrice = OFFICIAL_PRICING.originalPrice;
+  const currentPrice = product.price;
+  const originalPrice = product.originalPrice;
 
   const handleAdd = () => {
     addToCart(product, quantity);

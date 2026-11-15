@@ -58,10 +58,10 @@ function ProductDetailContent() {
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [isZoomOpen, setIsZoomOpen] = useState(false);
 
-  // Authoritative Pricing
-  const currentPrice = OFFICIAL_PRICING.salePrice;
-  const originalPrice = OFFICIAL_PRICING.originalPrice;
-  const isDiscounted = true;
+  // Authoritative Pricing derived from product data
+  const currentPrice = product.price;
+  const originalPrice = product.originalPrice;
+  const isDiscounted = product.price < product.originalPrice;
 
   const galleryImages = [
     { src: product.image, labelEn: 'Approved Campaign Packshot', labelAr: 'العبوة والتصميم الرسمي' },
@@ -110,7 +110,7 @@ function ProductDetailContent() {
     offers: {
       '@type': 'Offer',
       priceCurrency: 'EGP',
-      price: OFFICIAL_PRICING.salePrice,
+      price: product.price,
       priceValidUntil: '2027-12-31',
       availability: 'https://schema.org/InStock',
       url: `https://omniabodysplash.vercel.app/product/${product.id}`
@@ -552,10 +552,14 @@ function ProductDetailContent() {
                       {language === 'en' ? 'Official Bottle Volume' : 'سعة العبوة الرسمية'}
                     </span>
                     <p className="font-serif text-sm font-semibold text-[#493426]">
-                      {OFFICIAL_PRICING.volume} (5.1 FL OZ)
+                      {product.volume} {product.subCategory === 'body-splash' ? '(5.1 FL OZ)' : ''}
                     </p>
                     <p className="text-[#8B674D] text-[11px] leading-relaxed">
-                      {language === 'en'
+                      {product.subCategory === 'lip-gloss'
+                        ? language === 'en'
+                          ? 'Compact luxury pocket size formulated for precision application and continuous daily gloss.'
+                          : 'حجم مدمج فاخر مناسب للحقيبة، مصمم لتطبيق دقيق ولمعان يدوم طوال اليوم.'
+                        : language === 'en'
                         ? 'Generous everyday luxury size formulated for lasting daily pleasure.'
                         : 'حجم فاخر مثالي للاستخدام اليومي المستمر يمنحك انتعاشاً يدوم.'}
                     </p>
