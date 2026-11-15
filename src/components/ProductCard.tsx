@@ -30,7 +30,7 @@ export default function ProductCard({ product }: ProductCardProps) {
   return (
     <div className="group relative bg-[#FFF9F1] border border-[#E8D8C3] hover:border-[#C69A5A]/60 transition-all duration-500 flex flex-col justify-between overflow-hidden shadow-sm hover:shadow-xl">
       {/* 1. Product Image Area */}
-      <div className="relative w-full aspect-[3/4] bg-[#F7F1E8] overflow-hidden flex items-center justify-center p-6">
+      <div className={`relative w-full aspect-[3/4] bg-[#F7F1E8] overflow-hidden flex items-center justify-center ${isLipGloss ? 'p-0' : 'p-6'}`}>
         {/* Top Badges */}
         <div className="absolute top-3 left-3 z-10 flex flex-col gap-1.5">
           <span className="px-2.5 py-1 bg-[#493426] text-[#FFF9F1] text-[9px] uppercase tracking-[0.2em] font-sans font-semibold">
@@ -53,13 +53,13 @@ export default function ProductCard({ product }: ProductCardProps) {
           href={`/product/${product.id}`}
           className="relative w-full h-full flex items-center justify-center focus:outline-none"
         >
-          <div className="relative w-full h-full max-h-[380px] transition-transform duration-700 ease-out group-hover:scale-105">
+          <div className={`relative w-full h-full ${isLipGloss ? 'max-h-none' : 'max-h-[380px]'} transition-transform duration-700 ease-out group-hover:scale-105`}>
             <Image
               src={product.image}
               alt={language === 'en' ? product.nameEn : product.nameAr}
               fill
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              className="object-contain object-center drop-shadow-sm"
+              className={`${isLipGloss ? 'object-cover' : 'object-contain'} object-center drop-shadow-sm`}
               priority={true}
               loading="eager"
             />
