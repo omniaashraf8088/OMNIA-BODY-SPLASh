@@ -34,8 +34,9 @@ export default function SearchModal({ isOpen, onClose, onSelectProduct }: Search
       p.familyEn.toLowerCase().includes(q) ||
       p.familyAr.includes(q) ||
       p.taglineEn.toLowerCase().includes(q) ||
-      p.notes.topEn.toLowerCase().includes(q) ||
-      p.notes.heartEn.toLowerCase().includes(q)
+      (p.subCategory && p.subCategory.toLowerCase().includes(q)) ||
+      (p.notes?.topEn && p.notes.topEn.toLowerCase().includes(q)) ||
+      (p.notes?.heartEn && p.notes.heartEn.toLowerCase().includes(q))
     );
   });
 

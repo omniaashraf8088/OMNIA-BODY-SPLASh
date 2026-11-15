@@ -23,6 +23,7 @@ export interface Product {
   nameEn: string;
   nameAr: string;
   category: 'feminine' | 'masculine';
+  subCategory?: 'body-splash' | 'lip-gloss';
   taglineEn: string;
   taglineAr: string;
   familyEn: string;
@@ -42,6 +43,12 @@ export interface Product {
   lifestyleQuoteEn: string;
   lifestyleQuoteAr: string;
   isBestseller?: boolean;
+  featuresEn?: string[];
+  featuresAr?: string[];
+  whyBuyEn?: string;
+  whyBuyAr?: string;
+  usageEn?: string;
+  usageAr?: string;
 }
 
 export interface CartItem {

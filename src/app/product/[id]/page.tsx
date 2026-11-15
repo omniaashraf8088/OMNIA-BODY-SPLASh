@@ -13,9 +13,7 @@ import {
   Truck,
   Sparkles,
   Maximize2,
-  X,
-  Droplets,
-  Package
+  X
 } from 'lucide-react';
 import { PRODUCTS, OFFICIAL_PRICING } from '@/data/products';
 import { Product } from '@/types';
@@ -36,9 +34,20 @@ function ProductDetailContent() {
   const t = translations[language];
 
   const aliasMap: Record<string, string> = {
-    'berry-muse': 'berry',
-    'rose-eclat': 'rose',
-    'peach-sugar': 'peach',
+    'vanilliano': 'vanilla',
+    'the-warm-night': 'the-warm-night',
+    'warm-night': 'the-warm-night',
+    'strawberry': 'strawberry-cheesecake',
+    'strawberry-cheesecake': 'strawberry-cheesecake',
+    'lipgloss-nude': 'lipgloss-nude',
+    'nude': 'lipgloss-nude',
+    'lipgloss-rose': 'lipgloss-rose',
+    'rose-lipgloss': 'lipgloss-rose',
+    'rose': 'lipgloss-rose',
+    'berry': 'strawberry-cheesecake',
+    'peach': 'vanilla',
+    'classic': 'the-warm-night',
+    'oud': 'oud-noir',
     'navy-edition': 'navy-aqua'
   };
   const resolvedId = aliasMap[rawId.toLowerCase()] || rawId;
@@ -72,9 +81,13 @@ function ProductDetailContent() {
 
   const collectionLabel =
     product.category === 'feminine'
-      ? language === 'en'
-        ? 'Feminine Collection'
-        : 'المجموعة النسائية'
+      ? product.subCategory === 'lip-gloss'
+        ? language === 'en'
+          ? "Women's Lip Gloss"
+          : 'ملمع شفاه نسائي'
+        : language === 'en'
+        ? "Women's Body Splash"
+        : 'بودي سبلاش نسائي'
       : language === 'en'
       ? 'Masculine Collection'
       : 'المجموعة الرجالية';
@@ -219,9 +232,13 @@ function ProductDetailContent() {
 
               {/* 3 & 4. Product Type & Volume */}
               <div className="flex items-center gap-3 text-xs tracking-widest uppercase font-sans text-[#8B674D] border-b border-[#E8D8C3] pb-3">
-                <span className="font-semibold text-[#493426]">BODY SPLASH</span>
+                <span className="font-semibold text-[#493426]">
+                  {product.subCategory === 'lip-gloss'
+                    ? language === 'en' ? 'LIP GLOSS' : 'ليب جلوس'
+                    : language === 'en' ? 'BODY SPLASH' : 'بودي سبلاش'}
+                </span>
                 <span>•</span>
-                <span>{OFFICIAL_PRICING.volume}</span>
+                <span>{product.volume}</span>
                 <span>•</span>
                 <span className="text-emerald-800 font-medium">
                   {language === 'en' ? 'In Stock' : 'متوفر الآن'}
@@ -310,7 +327,7 @@ function ProductDetailContent() {
                 </div>
                 <div className="flex items-center gap-2">
                   <ShieldCheck className="w-4 h-4 text-[#493426] flex-shrink-0" />
-                  <span>{language === 'en' ? 'Official MN OMNIA 150 ML' : 'منتج أصلي سعة 150 مل'}</span>
+                  <span>{language === 'en' ? `Official MN OMNIA ${product.volume}` : `منتج أصلي سعة ${product.volume}`}</span>
                 </div>
               </div>
             </div>
@@ -362,7 +379,54 @@ function ProductDetailContent() {
             </div>
           </div>
 
-          {/* 3. PRODUCT SPECIFICATIONS (Honest & Transparent) */}
+          {/* 3. KEY FEATURES, BENEFITS & PERSUASIVE MARKETING */}
+          {((product.featuresEn && product.featuresEn.length > 0) || (product.featuresAr && product.featuresAr.length > 0)) && (
+            <div className="bg-[#FFF9F1] border border-[#E8D8C3] p-8 sm:p-10 space-y-6">
+              <div className="flex items-center gap-2">
+                <Sparkles className="w-5 h-5 text-[#C69A5A]" />
+                <h3 className="text-xl sm:text-2xl font-serif text-[#493426]">
+                  {language === 'en' ? 'Key Features & Proven Benefits' : 'أبرز المميزات والفوائد'}
+                </h3>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {/* Features List */}
+                <div className="space-y-3">
+                  <span className="text-[10px] uppercase tracking-widest font-sans font-semibold text-[#8B674D]">
+                    {language === 'en' ? 'Product Highlights' : 'مواصفات وخصائص التركيبة'}
+                  </span>
+                  <ul className="space-y-2.5 text-xs sm:text-sm text-[#493426]/90 font-sans">
+                    {(language === 'en' ? product.featuresEn : product.featuresAr)?.map((feat, idx) => (
+                      <li key={idx} className="flex items-start gap-2.5">
+                        <Check className="w-4 h-4 text-[#8B674D] mt-0.5 flex-shrink-0" />
+                        <span>{feat}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Why Try & Buy */}
+                {(product.whyBuyEn || product.whyBuyAr) && (
+                  <div className="p-6 bg-[#F7F1E8] border border-[#E8D8C3] space-y-3 flex flex-col justify-center">
+                    <span className="text-[10px] uppercase tracking-widest font-sans font-semibold text-[#8B674D]">
+                      {language === 'en' ? 'Why You’ll Love It' : 'لماذا ستعشقين هذا المنتج؟'}
+                    </span>
+                    <p className="font-serif italic text-sm text-[#493426] leading-relaxed">
+                      &ldquo;{language === 'en' ? product.whyBuyEn : product.whyBuyAr}&rdquo;
+                    </p>
+                    {(product.usageEn || product.usageAr) && (
+                      <div className="pt-3 border-t border-[#E8D8C3] text-xs font-sans text-[#8B674D]">
+                        <strong className="text-[#493426]">{language === 'en' ? 'Usage:' : 'الاستخدام:'}</strong>{' '}
+                        {language === 'en' ? product.usageEn : product.usageAr}
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+
+          {/* 4. PRODUCT SPECIFICATIONS (Honest & Transparent) */}
           <div className="bg-[#FFF9F1] border border-[#E8D8C3] p-8 sm:p-10 space-y-6">
             <h3 className="text-xl sm:text-2xl font-serif text-[#493426]">
               {t.productDetail.detailsTitle}
@@ -374,7 +438,9 @@ function ProductDetailContent() {
                   {language === 'en' ? 'Product Type' : 'نوع المنتج'}
                 </span>
                 <p className="font-semibold text-[#493426]">
-                  {language === 'en' ? 'Luxury Body Splash Spray' : 'سبلاش معطر للجسم فاخر'}
+                  {product.subCategory === 'lip-gloss'
+                    ? language === 'en' ? 'Luxury High-Shine Lip Gloss' : 'ملمع شفاه فاخر وعالي اللمعان'
+                    : language === 'en' ? 'Luxury Body Splash Spray' : 'سبلاش معطر للجسم فاخر'}
                 </p>
               </div>
 
@@ -382,15 +448,17 @@ function ProductDetailContent() {
                 <span className="text-[#8B674D] uppercase tracking-wider block text-[10px]">
                   {language === 'en' ? 'Volume' : 'الحجم'}
                 </span>
-                <p className="font-semibold text-[#493426]">{OFFICIAL_PRICING.volume}</p>
+                <p className="font-semibold text-[#493426]">{product.volume}</p>
               </div>
 
               <div className="p-4 bg-[#F7F1E8] border border-[#E8D8C3]/60 space-y-1">
                 <span className="text-[#8B674D] uppercase tracking-wider block text-[10px]">
-                  {language === 'en' ? 'Dispenser' : 'آلية الرش'}
+                  {language === 'en' ? 'Dispenser' : 'آلية الاستخدام'}
                 </span>
                 <p className="font-semibold text-[#493426]">
-                  {language === 'en' ? 'Ultra-Fine Micro-Mist Pump' : 'مضخة رذاذ ناعمة وفائقة الدقة'}
+                  {product.subCategory === 'lip-gloss'
+                    ? language === 'en' ? 'Precision Cushion Wand Applicator' : 'أداة تطبيق مخملية فائقة الدقة'
+                    : language === 'en' ? 'Ultra-Fine Micro-Mist Pump' : 'مضخة رذاذ ناعمة وفائقة الدقة'}
                 </p>
               </div>
 

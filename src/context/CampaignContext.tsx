@@ -29,7 +29,7 @@ const defaultCampaign: CampaignSettings = {
   subtitleEn: 'Original Price: 300 EGP • Now 150 EGP for a limited time.',
   subtitleAr: 'السعر الأصلي: 300 ج.م • الآن 150 ج.م لفترة محدودة.',
   endDate: '2026-12-31',
-  eligibleProducts: ['vanilliano', 'berry-muse', 'rose-eclat', 'peach-sugar', 'oud-noir', 'navy-edition']
+  eligibleProducts: ['vanilla', 'the-warm-night', 'strawberry-cheesecake', 'lipgloss-nude', 'lipgloss-rose', 'grey-musk', 'navy-aqua', 'oud-noir']
 };
 
 const CampaignContext = createContext<CampaignContextType | undefined>(undefined);
