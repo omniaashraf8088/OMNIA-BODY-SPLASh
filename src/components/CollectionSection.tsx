@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import Image from 'next/image';
 import { PRODUCTS } from '@/data/products';
 import { Product } from '@/types';
@@ -99,12 +100,12 @@ export default function CollectionSection({ onSelectProduct }: CollectionSection
                 {t.collection.feminineDesc}
               </p>
               <div className="mt-5">
-                <button
-                  type="button"
-                  className="px-6 py-2.5 bg-[#FFF9F1] text-[#493426] group-hover:bg-[#E8D8C3] transition-colors text-xs font-sans uppercase tracking-[0.2em] font-semibold"
+                <Link
+                  href="/collection/women"
+                  className="inline-block px-6 py-2.5 bg-[#FFF9F1] text-[#493426] hover:bg-[#E8D8C3] transition-colors text-xs font-sans uppercase tracking-[0.2em] font-semibold shadow-md"
                 >
-                  {t.collection.exploreFeminine}
-                </button>
+                  {t.collection.exploreFeminine} →
+                </Link>
               </div>
             </div>
           </div>
@@ -142,12 +143,12 @@ export default function CollectionSection({ onSelectProduct }: CollectionSection
                 {t.collection.masculineDesc}
               </p>
               <div className="mt-5">
-                <button
-                  type="button"
-                  className="px-6 py-2.5 bg-[#FFF9F1] text-[#493426] group-hover:bg-[#D1B99C] transition-colors text-xs font-sans uppercase tracking-[0.2em] font-semibold"
+                <Link
+                  href="/collection/men"
+                  className="inline-block px-6 py-2.5 bg-[#FFF9F1] text-[#493426] hover:bg-[#D1B99C] transition-colors text-xs font-sans uppercase tracking-[0.2em] font-semibold shadow-md"
                 >
-                  {t.collection.exploreMasculine}
-                </button>
+                  {t.collection.exploreMasculine} →
+                </Link>
               </div>
             </div>
           </div>

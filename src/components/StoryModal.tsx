@@ -36,7 +36,7 @@ export default function StoryModal({ product, onClose, onSelectRelated }: StoryM
   };
 
   const relatedProducts = PRODUCTS.filter(
-    p => p.id !== product.id && p.category === product.category
+    p => p.id !== product.id && p.category === product.category && p.subCategory === product.subCategory
   ).slice(0, 2);
 
   const collectionLabel =

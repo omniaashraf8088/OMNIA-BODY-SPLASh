@@ -104,7 +104,7 @@ export default function MenCampaignVideoSection() {
         {/* Call to action below video */}
         <div className="mt-10 sm:mt-12 text-center">
           <Link
-            href="/#masculine"
+            href="/collection/men"
             className="inline-flex items-center gap-2.5 px-8 py-3.5 bg-[#FFF9F1] text-[#131B26] hover:bg-[#D1B99C] hover:text-[#131B26] transition-all text-xs font-sans uppercase tracking-[0.2em] font-semibold shadow-lg"
           >
             <Compass className="w-3.5 h-3.5" />

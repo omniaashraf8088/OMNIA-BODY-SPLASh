@@ -13,7 +13,7 @@ import { translations } from '@/data/translations';
 interface SearchModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onSelectProduct: (product: Product) => void;
+  onSelectProduct?: (product: Product) => void;
 }
 
 export default function SearchModal({ isOpen, onClose, onSelectProduct }: SearchModalProps) {

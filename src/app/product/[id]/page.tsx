@@ -77,7 +77,10 @@ function ProductDetailContent() {
   };
 
   const ArrowIcon = isRtl ? ArrowRight : ArrowLeft;
-  const relatedProducts = PRODUCTS.filter(p => p.id !== product.id && p.category === product.category).slice(0, 3);
+  // Strict Category Isolation: Related products must strictly match category AND subCategory
+  const relatedProducts = PRODUCTS.filter(
+    p => p.id !== product.id && p.category === product.category && p.subCategory === product.subCategory
+  ).slice(0, 3);
 
   const collectionLabel =
     product.category === 'feminine'
@@ -120,20 +123,31 @@ function ProductDetailContent() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <Header />
+      <Header currentCollection={product.category} />
 
       <main className="container mx-auto px-4 sm:px-6 py-8 sm:py-12 max-w-6xl flex-grow space-y-16">
-        {/* Breadcrumb Navigation */}
+        {/* Breadcrumb Navigation strictly isolated */}
         <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs font-sans uppercase tracking-widest text-[#8B674D]">
           <Link
-            href="/#collection"
+            href={
+              product.category === 'feminine'
+                ? product.subCategory === 'lip-gloss'
+                  ? '/collection/women/lip-gloss'
+                  : '/collection/women/body-splash'
+                : '/collection/men/body-splash'
+            }
             className="inline-flex items-center gap-1.5 hover:text-[#493426] transition-colors"
           >
             <ArrowIcon className="w-3.5 h-3.5" />
             <span>{t.productDetail.backToCollection}</span>
           </Link>
           <span className="opacity-50">/</span>
-          <span className="text-[#8B674D]/80">{collectionLabel}</span>
+          <Link
+            href={product.category === 'feminine' ? '/collection/women' : '/collection/men'}
+            className="hover:text-[#493426] transition-colors text-[#8B674D]/80"
+          >
+            {collectionLabel}
+          </Link>
           <span className="opacity-50">/</span>
           <span className="text-[#493426] font-semibold">
             {language === 'en' ? product.nameEn : product.nameAr}
@@ -563,22 +577,39 @@ function ProductDetailContent() {
             )}
           </div>
 
-          {/* 6. RELATED FRAGRANCES */}
-          <div>
-            <div className="flex items-baseline justify-between mb-6">
-              <h3 className="text-2xl sm:text-3xl font-serif text-[#493426]">
-                {t.productDetail.relatedTitle}
-              </h3>
-              <Link
-                href="/#collection"
-                className="text-xs font-sans uppercase tracking-widest text-[#8B674D] hover:text-[#493426] transition-colors"
-              >
-                {language === 'en' ? 'View All Fragrances' : 'عرض كافة العطور'}
-              </Link>
-            </div>
+          {/* 6. RELATED PRODUCTS (Strictly Isolated to Current Category) */}
+          {relatedProducts.length > 0 && (
+            <div>
+              <div className="flex items-baseline justify-between mb-6">
+                <h3 className="text-2xl sm:text-3xl font-serif text-[#493426]">
+                  {product.subCategory === 'lip-gloss'
+                    ? language === 'en'
+                      ? 'More Lip Gloss Shades'
+                      : 'درجات ملمع شفاه أخرى'
+                    : t.productDetail.relatedTitle}
+                </h3>
+                <Link
+                  href={
+                    product.category === 'feminine'
+                      ? product.subCategory === 'lip-gloss'
+                        ? '/collection/women/lip-gloss'
+                        : '/collection/women/body-splash'
+                      : '/collection/men/body-splash'
+                  }
+                  className="text-xs font-sans uppercase tracking-widest text-[#8B674D] hover:text-[#493426] transition-colors"
+                >
+                  {product.subCategory === 'lip-gloss'
+                    ? language === 'en'
+                      ? 'View Lip Gloss Line →'
+                      : 'عرض تشكيلة ملمع الشفاه ←'
+                    : language === 'en'
+                    ? 'View All Scents →'
+                    : 'عرض كافة العطور ←'}
+                </Link>
+              </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-              {relatedProducts.map(rel => (
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                {relatedProducts.map(rel => (
                 <Link
                   key={rel.id}
                   href={`/product/${rel.id}`}
@@ -611,7 +642,8 @@ function ProductDetailContent() {
               ))}
             </div>
           </div>
-        </section>
+        )}
+      </section>
       </main>
 
       {/* Full-Screen Zoom Modal */}
@@ -671,7 +703,8 @@ function ProductDetailContent() {
         </button>
       </div>
 
-      <Footer />
+      {/* Footer strictly isolated by product category */}
+      <Footer collection={product.category} />
     </div>
   );
 }

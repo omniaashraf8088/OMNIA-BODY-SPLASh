@@ -8,12 +8,14 @@ import { useLanguage } from '@/context/LanguageContext';
 import { translations } from '@/data/translations';
 
 interface FooterProps {
+  collection?: 'feminine' | 'masculine' | 'shared';
   facebookUrl?: string;
   instagramUrl?: string;
   whatsappNumber?: string;
 }
 
 export default function Footer({
+  collection = 'shared',
   facebookUrl = '[FACEBOOK_PAGE_URL]',
   instagramUrl = '[INSTAGRAM_PROFILE_URL]',
   whatsappNumber = '[WHATSAPP_NUMBER_WITH_COUNTRY_CODE]',
@@ -126,42 +128,97 @@ export default function Footer({
             </div>
           </div>
 
-          {/* Column 2: Quick Links */}
+          {/* Column 2: Quick Links (Strictly Isolated by Collection) */}
           <div className="space-y-4">
             <h4 className="text-xs uppercase tracking-[0.25em] font-sans font-semibold text-[#D1B99C]">
               {t.footer.quickLinks}
             </h4>
             <ul className="space-y-2.5 text-xs text-[#E8D8C3] font-sans">
-              <li>
-                <Link href="#collection" className="hover:text-[#FFF9F1] transition-colors">
-                  {t.nav.collection}
-                </Link>
-              </li>
-              <li>
-                <Link href="#feminine" className="hover:text-[#FFF9F1] transition-colors">
-                  {t.collection.feminineTitle}
-                </Link>
-              </li>
-              <li>
-                <Link href="#masculine" className="hover:text-[#FFF9F1] transition-colors">
-                  {t.collection.masculineTitle}
-                </Link>
-              </li>
-              <li>
-                <Link href="#quiz" className="hover:text-[#FFF9F1] transition-colors">
-                  {t.quiz.title}
-                </Link>
-              </li>
-              <li>
-                <Link href="#experience" className="hover:text-[#FFF9F1] transition-colors">
-                  {t.cinematic.headline}
-                </Link>
-              </li>
-              <li>
-                <Link href="#story" className="hover:text-[#FFF9F1] transition-colors">
-                  {t.nav.ourStory}
-                </Link>
-              </li>
+              {collection === 'feminine' ? (
+                <>
+                  <li>
+                    <Link href="/" className="hover:text-[#FFF9F1] transition-colors">
+                      {language === 'en' ? 'Homepage' : 'الرئيسية'}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/collection/women" className="hover:text-[#FFF9F1] transition-colors">
+                      {language === 'en' ? "Women's Collection" : 'المجموعة النسائية'}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/collection/women/lip-gloss" className="hover:text-[#FFF9F1] transition-colors">
+                      {language === 'en' ? 'Lip Gloss Atelier' : 'تشكيلة ملمع الشفاه'}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/collection/women/body-splash" className="hover:text-[#FFF9F1] transition-colors">
+                      {language === 'en' ? 'Body Splash Atelier' : 'تشكيلة بودي سبلاش'}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/#story" className="hover:text-[#FFF9F1] transition-colors">
+                      {t.nav.ourStory}
+                    </Link>
+                  </li>
+                </>
+              ) : collection === 'masculine' ? (
+                <>
+                  <li>
+                    <Link href="/" className="hover:text-[#FFF9F1] transition-colors">
+                      {language === 'en' ? 'Homepage' : 'الرئيسية'}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/collection/men" className="hover:text-[#FFF9F1] transition-colors">
+                      {language === 'en' ? "Men's Collection" : 'المجموعة الرجالية'}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/collection/men/body-splash" className="hover:text-[#FFF9F1] transition-colors">
+                      {language === 'en' ? "Men's Body Splash" : 'بودي سبلاش رجالي'}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/#story" className="hover:text-[#FFF9F1] transition-colors">
+                      {t.nav.ourStory}
+                    </Link>
+                  </li>
+                </>
+              ) : (
+                <>
+                  <li>
+                    <Link href="/#collection" className="hover:text-[#FFF9F1] transition-colors">
+                      {t.nav.collection}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/collection/women" className="hover:text-[#FFF9F1] transition-colors">
+                      {t.collection.feminineTitle}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/collection/men" className="hover:text-[#FFF9F1] transition-colors">
+                      {t.collection.masculineTitle}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/#quiz" className="hover:text-[#FFF9F1] transition-colors">
+                      {t.quiz.title}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/#experience" className="hover:text-[#FFF9F1] transition-colors">
+                      {t.cinematic.headline}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/#story" className="hover:text-[#FFF9F1] transition-colors">
+                      {t.nav.ourStory}
+                    </Link>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
 
