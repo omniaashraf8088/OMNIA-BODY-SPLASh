@@ -60,7 +60,8 @@ export default function ProductCard({ product }: ProductCardProps) {
               fill
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               className="object-contain object-center drop-shadow-sm"
-              priority={product.id === 'vanilla' || product.id === 'lipgloss-nude'}
+              priority={true}
+              loading="eager"
             />
           </div>
         </Link>
