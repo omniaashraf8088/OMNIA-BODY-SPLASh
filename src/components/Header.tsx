@@ -242,20 +242,20 @@ export default function Header({ currentCollection = 'shared', onOpenSearch }: H
             </>
           ) : (
             <>
-              <Link href="/#collection" className="hover:text-[#8B674D] transition-colors py-1">
-                {t.nav.collection}
-              </Link>
-              <Link href="/collection/women" className="hover:text-[#8B674D] transition-colors py-1">
+              <Link href="/collection/women" className="hover:text-[#8B674D] transition-colors py-1 font-semibold text-[#493426]">
                 {t.collection.feminineTitle}
               </Link>
-              <Link href="/collection/men" className="hover:text-[#8B674D] transition-colors py-1">
+              <Link href="/collection/women/lip-gloss" className="hover:text-[#8B674D] transition-colors py-1">
+                {language === 'en' ? 'LIP GLOSS' : 'ملمع الشفاه (ليب جلوس)'}
+              </Link>
+              <Link href="/collection/women/body-splash" className="hover:text-[#8B674D] transition-colors py-1">
+                {language === 'en' ? 'BODY SPLASH' : 'بودي سبلاش حريمي'}
+              </Link>
+              <Link href="/collection/men" className="hover:text-[#8B674D] transition-colors py-1 font-semibold text-[#493426]">
                 {t.collection.masculineTitle}
               </Link>
-              <Link href="/#experience" className="hover:text-[#8B674D] transition-colors py-1">
-                {t.nav.experience}
-              </Link>
-              <Link href="/#quiz" className="hover:text-[#8B674D] transition-colors py-1">
-                {t.nav.quiz}
+              <Link href="/collection/men/body-splash" className="hover:text-[#8B674D] transition-colors py-1">
+                {language === 'en' ? 'MEN BODY SPLASH' : 'بودي سبلاش رجالي'}
               </Link>
               <Link href="/#story" className="hover:text-[#8B674D] transition-colors py-1">
                 {t.nav.ourStory}
@@ -343,40 +343,51 @@ export default function Header({ currentCollection = 'shared', onOpenSearch }: H
               ) : (
                 <>
                   <Link
-                    href="/#collection"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="py-2 border-b border-[#E8D8C3]"
-                  >
-                    {t.nav.collection}
-                  </Link>
-                  <Link
                     href="/collection/women"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="py-2 border-b border-[#E8D8C3]"
+                    className="py-2 border-b border-[#E8D8C3] font-semibold flex items-center justify-between"
                   >
-                    {t.collection.feminineTitle}
+                    <span>{t.collection.feminineTitle}</span>
+                    <span className="text-[10px] text-[#8B674D]">5 {language === 'en' ? 'Products' : 'منتجات'}</span>
                   </Link>
+                  <div className="ps-4 flex flex-col space-y-2 py-1.5 border-b border-[#E8D8C3] bg-[#FFF9F1]/50">
+                    <Link
+                      href="/collection/women/lip-gloss"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="py-1 text-xs text-[#8B674D] hover:text-[#493426] flex items-center justify-between"
+                    >
+                      <span>• {language === 'en' ? 'Lip Gloss' : 'ملمع الشفاه / ليب جلوس'}</span>
+                      <span className="text-[10px] font-sans">2 {language === 'en' ? 'Shades' : 'درجتان'}</span>
+                    </Link>
+                    <Link
+                      href="/collection/women/body-splash"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="py-1 text-xs text-[#8B674D] hover:text-[#493426] flex items-center justify-between"
+                    >
+                      <span>• {language === 'en' ? 'Body Splash' : 'بودي سبلاش حريمي'}</span>
+                      <span className="text-[10px] font-sans">3 {language === 'en' ? 'Fragrances' : 'عطور'}</span>
+                    </Link>
+                  </div>
+
                   <Link
                     href="/collection/men"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="py-2 border-b border-[#E8D8C3]"
+                    className="py-2 border-b border-[#E8D8C3] font-semibold flex items-center justify-between"
                   >
-                    {t.collection.masculineTitle}
+                    <span>{t.collection.masculineTitle}</span>
+                    <span className="text-[10px] text-[#8B674D]">3 {language === 'en' ? 'Fragrances' : 'عطور'}</span>
                   </Link>
-                  <Link
-                    href="/#quiz"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="py-2 border-b border-[#E8D8C3]"
-                  >
-                    {t.nav.quiz}
-                  </Link>
-                  <Link
-                    href="/#experience"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="py-2 border-b border-[#E8D8C3]"
-                  >
-                    {t.nav.experience}
-                  </Link>
+                  <div className="ps-4 flex flex-col space-y-2 py-1.5 border-b border-[#E8D8C3] bg-[#FFF9F1]/50">
+                    <Link
+                      href="/collection/men/body-splash"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="py-1 text-xs text-[#8B674D] hover:text-[#493426] flex items-center justify-between"
+                    >
+                      <span>• {language === 'en' ? 'Body Splash For Men' : 'بودي سبلاش رجالي'}</span>
+                      <span className="text-[10px] font-sans">3 {language === 'en' ? 'Fragrances' : 'عطور'}</span>
+                    </Link>
+                  </div>
+
                   <Link
                     href="/#story"
                     onClick={() => setMobileMenuOpen(false)}

@@ -18,11 +18,12 @@ export default function OurStorySection() {
           <div className="relative">
             <div className="relative h-[420px] sm:h-[500px] border border-[#E8D8C3] shadow-xl overflow-hidden bg-[#E8D8C3]">
               <Image
-                src="/assets/posters/cinematic_poster.png"
-                alt="The Art of OMNIA"
+                src="/assets/products/story_vanilla_atelier.jpg"
+                alt="The Art of OMNIA - Vanilla Body Splash"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover object-center"
+                priority
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#493426]/70 via-transparent to-transparent" />
 
