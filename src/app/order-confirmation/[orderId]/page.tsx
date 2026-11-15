@@ -97,7 +97,7 @@ function OrderConfirmationContent() {
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
             <a
-              href={`https://wa.me/?text=${whatsappMessage}`}
+              href={`https://wa.me/201142349165?text=${whatsappMessage}`}
               target="_blank"
               rel="noopener noreferrer"
               className="w-full sm:w-auto px-6 py-3.5 bg-[#25D366] hover:bg-[#20ba59] text-white text-xs font-sans uppercase tracking-wider font-semibold transition-colors flex items-center justify-center gap-2 shadow"

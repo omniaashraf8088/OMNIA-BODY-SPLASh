@@ -18,7 +18,7 @@ export default function Footer({
   collection = 'shared',
   facebookUrl = '[FACEBOOK_PAGE_URL]',
   instagramUrl = '[INSTAGRAM_PROFILE_URL]',
-  whatsappNumber = '[WHATSAPP_NUMBER_WITH_COUNTRY_CODE]',
+  whatsappNumber = '201142349165',
 }: FooterProps) {
   const { language } = useLanguage();
   const t = translations[language];
@@ -228,6 +228,18 @@ export default function Footer({
               {t.footer.customerCare}
             </h4>
             <ul className="space-y-2.5 text-xs text-[#E8D8C3] font-sans">
+              <li>
+                <a
+                  href={`https://wa.me/${whatsappNumber}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#FFF9F1] transition-colors flex items-center gap-2 text-[#D1B99C] font-semibold"
+                  title="WhatsApp & Call Support"
+                >
+                  <Phone className="w-3.5 h-3.5 text-[#25D366]" />
+                  <span dir="ltr">0114 2349165</span>
+                </a>
+              </li>
               <li>
                 <Link href="/checkout" className="hover:text-[#FFF9F1] transition-colors">
                   {t.checkout.title}

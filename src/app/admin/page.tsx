@@ -18,7 +18,7 @@ export default function AdminDashboard() {
   const [orders, setOrders] = useState<any[]>([]);
 
   // Settings
-  const [whatsappNumber, setWhatsappNumber] = useState('[WHATSAPP_NUMBER_WITH_COUNTRY_CODE]');
+  const [whatsappNumber, setWhatsappNumber] = useState('201142349165');
   const [facebookUrl, setFacebookUrl] = useState('[FACEBOOK_PAGE_URL]');
   const [instagramUrl, setInstagramUrl] = useState('[INSTAGRAM_PROFILE_URL]');
   const [savedNotice, setSavedNotice] = useState(false);

@@ -11,16 +11,14 @@ interface WhatsAppButtonProps {
 }
 
 export default function WhatsAppButton({
-  phoneNumber = '[WHATSAPP_NUMBER_WITH_COUNTRY_CODE]'
+  phoneNumber = '201142349165'
 }: WhatsAppButtonProps) {
   const { language, isRtl } = useLanguage();
   const t = translations[language];
   const [showTooltip, setShowTooltip] = useState(false);
 
   const encodedMessage = encodeURIComponent(t.whatsapp.prefill);
-  const whatsappUrl = phoneNumber.startsWith('[')
-    ? `https://wa.me/?text=${encodedMessage}`
-    : `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 
   return (
     <div
