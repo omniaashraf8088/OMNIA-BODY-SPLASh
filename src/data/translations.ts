@@ -47,7 +47,7 @@ export const translations = {
       discoverScent: 'Discover This Scent',
       addToBag: 'Add to Bag',
       addedToBag: 'Added to Bag',
-      volumeLabel: '150 ML Body Splash',
+      volumeLabel: '120 ML Body Splash',
       egp: 'EGP',
       save: 'SAVE'
     },
@@ -112,7 +112,7 @@ export const translations = {
       baseNotes: 'Base Notes',
       detailsTitle: 'Product Details',
       productType: 'Product Type: Luxury Body Splash Spray',
-      volume: 'Volume: 150 ML',
+      volume: 'Volume: 120 ML',
       shippingInfo: 'Fast delivery across all Egypt Governorates in 1-3 business days. Cash on Delivery available.',
       quantity: 'Quantity',
       buyNow: 'BUY NOW',

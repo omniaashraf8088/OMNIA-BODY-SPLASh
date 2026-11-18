@@ -174,7 +174,7 @@ export default function WomensCollectionPage() {
                     <span>{language === 'en' ? 'DISCOVER BODY SPLASH' : 'استعراض البودي سبلاش'}</span>
                     <ArrowIcon />
                   </span>
-                  <span className="text-xs font-serif italic text-[#8B674D]">150 ML</span>
+                  <span className="text-xs font-serif italic text-[#8B674D]">120 ML</span>
                 </div>
               </div>
             </Link>

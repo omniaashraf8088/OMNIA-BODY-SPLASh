@@ -59,7 +59,7 @@ export default function WomensBodySplashPage() {
             {/* Section Header */}
             <div className="text-center max-w-2xl mx-auto mb-14">
               <span className="text-[10px] tracking-[0.25em] uppercase font-sans font-semibold text-[#8B674D] block mb-2">
-                {language === 'en' ? 'FINE FRAGRANCE BODY MISTS • 150 ML' : 'رذاذ معطر فاخر للجسم • 150 مل'}
+                {language === 'en' ? 'FINE FRAGRANCE BODY MISTS • 120 ML' : 'رذاذ معطر فاخر للجسم • 120 مل'}
               </span>
               <h2 className="text-3xl sm:text-4xl font-serif text-[#493426] tracking-tight">
                 {language === 'en' ? 'Signature Scent Collection' : 'مجموعة العطور التوقيعية'}
@@ -110,7 +110,7 @@ export default function WomensBodySplashPage() {
                     <Sparkles className="w-5 h-5 text-[#8B674D]" />
                   </div>
                   <h3 className="text-sm font-serif font-semibold text-[#493426] mb-1">
-                    {language === 'en' ? '150 ML Generous Volume' : 'حجم سخي 150 مل'}
+                    {language === 'en' ? '120 ML Generous Volume' : 'حجم سخي 120 مل'}
                   </h3>
                   <p className="text-xs text-[#8B674D] font-sans">
                     {language === 'en' ? 'Designed for generous, refreshing daily self-care.' : 'يكفي للاستخدام اليومي الواسع بعد الاستحمام وفي كل وقت.'}

@@ -5,7 +5,7 @@ export const OFFICIAL_PRICING = {
   salePrice: 150,
   discountPercentage: 50,
   currency: 'EGP',
-  volume: '150 ML'
+  volume: '120 ML'
 } as const;
 
 export const LIP_GLOSS_PRICING = {
@@ -33,7 +33,7 @@ export const PRODUCTS: Product[] = [
     familyAr: 'فانيليا دافئة وحلوة',
     price: OFFICIAL_PRICING.salePrice,
     originalPrice: OFFICIAL_PRICING.originalPrice,
-    volume: '150 ML',
+    volume: '120 ML',
     image: '/assets/products/vanilla_studio.jpg',
     bottleImage: '/assets/products/vanilla_studio.jpg',
     accentColor: '#D19C4C',
@@ -56,7 +56,7 @@ export const PRODUCTS: Product[] = [
     featuresEn: [
       'Luxury blend of vanilla, coconut milk, musk and jasmine.',
       'Lightweight, refreshing mist that leaves skin delicately scented all day.',
-      'Generous 150 ml bottle crafted for everyday luxury and self-care.'
+      'Generous 120 ml bottle crafted for everyday luxury and self-care.'
     ],
     featuresAr: [
       'مزيج فاخر من الفانيليا وحليب جوز الهند والمسك وزهور الياسمين.',
@@ -81,7 +81,7 @@ export const PRODUCTS: Product[] = [
     familyAr: 'زهري شرقي وتوت بري دافئ',
     price: OFFICIAL_PRICING.salePrice,
     originalPrice: OFFICIAL_PRICING.originalPrice,
-    volume: '150 ML',
+    volume: '120 ML',
     image: '/assets/products/the_warm_night.png',
     bottleImage: '/assets/products/the_warm_night.png',
     accentColor: '#C25E26',
@@ -104,7 +104,7 @@ export const PRODUCTS: Product[] = [
     featuresEn: [
       'Luxury blend of black raspberry, Turkish rose, jasmine, and patchouli.',
       'Deep, romantic projection designed specifically for captivating evening wear.',
-      '150 ml bottle ensuring long-lasting fragrant indulgence.'
+      '120 ml bottle ensuring long-lasting fragrant indulgence.'
     ],
     featuresAr: [
       'توليفة حصرية من التوت الأسود، الورد التركي، الياسمين، والباتشولي.',
@@ -129,7 +129,7 @@ export const PRODUCTS: Product[] = [
     familyAr: 'فواكه سكرية وحلوى كريمية لامعة',
     price: OFFICIAL_PRICING.salePrice,
     originalPrice: OFFICIAL_PRICING.originalPrice,
-    volume: '150 ML',
+    volume: '120 ML',
     image: '/assets/products/strawberry_cheesecake.png',
     bottleImage: '/assets/products/strawberry_cheesecake.png',
     accentColor: '#D84B78',
@@ -152,7 +152,7 @@ export const PRODUCTS: Product[] = [
     featuresEn: [
       'Luxury blend of fresh strawberry, sweet vanilla, and cheesecake accord.',
       'Shimmering pearlescent formula that adds a subtle, luminous glow to skin.',
-      '150 ml bottle for sweet, cheerful everyday indulgence.'
+      '120 ml bottle for sweet, cheerful everyday indulgence.'
     ],
     featuresAr: [
       'مزيج فريد من الفراولة الطبيعية والفانيليا ونفحات التشيزكيك الشهية.',
@@ -308,7 +308,7 @@ export const PRODUCTS: Product[] = [
     featuresEn: [
       'Refined blend of crisp titanium air, white musk, and cedarwood.',
       'Crisp, clean masculine aroma tailored for professional daily wear.',
-      '150 ml bottle designed for long-lasting confidence.'
+      '120 ml bottle designed for long-lasting confidence.'
     ],
     featuresAr: [
       'مزيج راقٍ من النسيم المعدني والمسك الأبيض وأخشاب الأرز.',
@@ -356,7 +356,7 @@ export const PRODUCTS: Product[] = [
     featuresEn: [
       'Invigorating marine spray with coastal aromatics and deep ocean woods.',
       'Energizing, vibrant scent profile perfect for workouts and active days.',
-      '150 ml bottle for generous refreshing all day long.'
+      '120 ml bottle for generous refreshing all day long.'
     ],
     featuresAr: [
       'انتعاش بحري نابض بالحيوية مع نفحات أروماتية وأخشاب المحيط العميقة.',
@@ -404,7 +404,7 @@ export const PRODUCTS: Product[] = [
     featuresEn: [
       'Noble blend of aged agarwood, smoked spices, and obsidian woods.',
       'Potent, commanding evening projection with unmatched longevity.',
-      '150 ml bottle crafted for royal masculine distinction.'
+      '120 ml bottle crafted for royal masculine distinction.'
     ],
     featuresAr: [
       'توليفة ملكية من العود العتيق والتوابل المدخنة والأخشاب الداكنة.',

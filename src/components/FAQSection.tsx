@@ -34,7 +34,7 @@ const FAQS: FAQItem[] = [
   {
     qEn: 'What is the volume and packaging specifications of each bottle?',
     qAr: 'ما هو حجم ومواصفات عبوة البودي سبلاش؟',
-    aEn: 'Every MN OMNIA bottle contains 150 ML of luxury body splash, equipped with an ultra-fine micro-mist pump and a crystal-clear acrylic protective cap for a silky, even mist distribution.',
+    aEn: 'Every MN OMNIA bottle contains 120 ML of luxury body splash, equipped with an ultra-fine micro-mist pump and a crystal-clear acrylic protective cap for a silky, even mist distribution.',
     aAr: 'تحتوي كل عبوة من إم إن أومنيا على 150 مل من البودي سبلاش الفاخر، ومزودة برذاذ فائق الدقة (Micro-mist pump) وغطاء أكريليك شفاف يوزع العطر بنعومة حريرية على كامل الجسم.'
   },
   {

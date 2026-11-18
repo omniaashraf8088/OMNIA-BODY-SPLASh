@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://omniabodysplash.vercel.app'),
   title: 'MN OMNIA | Luxury Body Splash — Your Signature. Your Scent.',
   description:
-    'MN OMNIA luxury body splash collection. 150 ML fine body splashes for women and men: Vanilliano, Oud, Berry, Rose, Peach, Classic, Grey Musk, Navy Aqua, and Oud Noir. 150 EGP (50% Off Opening Offer).',
+    'MN OMNIA luxury body splash collection. 120 ML fine body splashes for women and men: Vanilliano, Oud, Berry, Rose, Peach, Classic, Grey Musk, Navy Aqua, and Oud Noir. 150 EGP (50% Off Opening Offer).',
   icons: {
     icon: [
       { url: '/favicon.ico' },
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'MN OMNIA | Luxury Body Splash Collection',
-    description: 'A little touch of luxury, every day. 150 ML Luxury Body Splash — 150 EGP with 50% discount.',
+    description: 'A little touch of luxury, every day. 120 ML Luxury Body Splash — 150 EGP with 50% discount.',
     url: 'https://omniabodysplash.vercel.app',
     siteName: 'MN OMNIA',
     images: [
